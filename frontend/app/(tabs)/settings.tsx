@@ -3,7 +3,6 @@ import {
   Bell,
   Lock,
   Globe,
-  Moon,
   HelpCircle,
   Info,
   ChevronRight,
@@ -17,7 +16,6 @@ export default function SettingsScreen() {
   const router = useRouter();
   const { logout } = useAuthContext();
   const [notifications, setNotifications] = useState(true);
-  const [darkMode, setDarkMode] = useState(false);
 
   const handleLogout = async () => {
     await logout();
