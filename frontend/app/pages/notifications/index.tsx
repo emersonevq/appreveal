@@ -1,6 +1,6 @@
 import { View, Text, ScrollView, Pressable } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Heart, MessageCircle, UserPlus, Share2, Trash2 } from 'lucide-react-native';
+import { Heart, MessageCircle, UserPlus, Share2, Trash2, ChevronLeft } from 'lucide-react-native';
 
 interface Notification {
   id: string;
@@ -91,11 +91,19 @@ export default function NotificationsScreen() {
   return (
     <View className="flex-1 bg-gray-50">
       {/* Header */}
-      <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200">
-        <Text className="text-3xl font-bold text-gray-900">Notificações</Text>
-        <Text className="text-sm text-gray-600 mt-1">
-          {mockNotifications.filter((n) => !n.read).length} não lidas
-        </Text>
+      <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200 flex-row items-center gap-3">
+        <Pressable
+          onPress={() => router.back()}
+          className="p-2 -ml-2"
+        >
+          <ChevronLeft size={24} color="#111827" />
+        </Pressable>
+        <View>
+          <Text className="text-2xl font-bold text-gray-900">Notificações</Text>
+          <Text className="text-xs text-gray-600 mt-0.5">
+            {mockNotifications.filter((n) => !n.read).length} não lidas
+          </Text>
+        </View>
       </View>
 
       {/* Notifications List */}
@@ -152,8 +160,14 @@ export default function NotificationsScreen() {
         <View className="flex-1 items-center justify-center">
           <Heart size={48} color="#d1d5db" />
           <Text className="text-gray-600 text-center mt-4">
-            Nenhuma notificação no momento
+            Nenhuma notificação
           </Text>
+          <Pressable
+            onPress={() => router.back()}
+            className="mt-4 bg-blue-500 rounded-lg px-6 py-2"
+          >
+            <Text className="text-white font-semibold">Voltar</Text>
+          </Pressable>
         </View>
       )}
     </View>
