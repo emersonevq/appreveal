@@ -1,10 +1,5 @@
 import { View, Pressable, Text } from 'react-native';
-import {
-  Users,
-  MessageCircle,
-  Bell,
-  FileText,
-} from 'lucide-react-native';
+import { Users, MessageCircle, Bell, FileText } from 'lucide-react-native';
 import type { UserProfile } from '@/frontend/types/user';
 
 interface StatsBarProps {

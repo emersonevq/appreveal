@@ -8,11 +8,9 @@ import { mockScraps, mockTestimonials } from '@/frontend/mocks/scraps';
 import { mockUserPosts } from '@/frontend/mocks/posts';
 
 export default function ProfileScreen() {
-  const userPosts = mockUserPosts.filter(
-    (post) => post.userId === '1',
-  );
-  const taggedPosts = mockUserPosts.filter(
-    (post) => post.taggedUsers?.includes('João Silva'),
+  const userPosts = mockUserPosts.filter((post) => post.userId === '1');
+  const taggedPosts = mockUserPosts.filter((post) =>
+    post.taggedUsers?.includes('João Silva'),
   );
 
   const handleEditProfile = () => {
@@ -54,10 +52,7 @@ export default function ProfileScreen() {
         <Text className="text-3xl font-bold text-gray-900">Meu Perfil</Text>
       </View>
 
-      <ScrollView
-        className="flex-1"
-        showsVerticalScrollIndicator={false}
-      >
+      <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         <View className="px-6 py-6 gap-6">
           {/* Profile Card */}
           <ProfileCard

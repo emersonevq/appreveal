@@ -1,5 +1,10 @@
 import { View, Text, Image, Pressable, ScrollView } from 'react-native';
-import { Heart, MessageCircle, Share2, MoreVertical } from 'lucide-react-native';
+import {
+  Heart,
+  MessageCircle,
+  Share2,
+  MoreVertical,
+} from 'lucide-react-native';
 import { Avatar } from '@/frontend/components/Avatar';
 import type { Post } from '@/frontend/types/post';
 
@@ -70,9 +75,7 @@ export function PostsList({
             </View>
 
             {/* Content */}
-            <Text className="text-gray-700 leading-5 mb-3">
-              {post.content}
-            </Text>
+            <Text className="text-gray-700 leading-5 mb-3">{post.content}</Text>
 
             {/* Image */}
             {post.image && (

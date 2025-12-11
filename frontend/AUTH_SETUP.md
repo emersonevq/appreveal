@@ -51,15 +51,16 @@ Gerencia o estado global de autenticação:
 
 ```typescript
 interface AuthContextType {
-  isAuthenticated: boolean;  // Se o usuário está logado
-  user: UserProfile | null;  // Dados do usuário
-  login: () => Promise<void>;     // Faz login automático
-  logout: () => Promise<void>;    // Faz logout
-  isLoading: boolean;        // Estado de carregamento
+  isAuthenticated: boolean; // Se o usuário está logado
+  user: UserProfile | null; // Dados do usuário
+  login: () => Promise<void>; // Faz login automático
+  logout: () => Promise<void>; // Faz logout
+  isLoading: boolean; // Estado de carregamento
 }
 ```
 
 **Funcionalidades:**
+
 - ✅ Estado global de autenticação
 - ✅ Login automático com mock data
 - ✅ Logout que limpa dados
@@ -78,10 +79,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 ```
 
 **Localização:**
+
 - `frontend/contexts/AuthContext.tsx`
 
 **Uso:**
-- Envolvido em `RootLayout` (_layout.tsx)
+
+- Envolvido em `RootLayout` (\_layout.tsx)
 - Disponível para qualquer componente via `useAuthContext()`
 
 ---
@@ -107,6 +110,7 @@ if (!isAuthenticated) {
 ```
 
 **Lógica:**
+
 - Se `isAuthenticated = true` → Navega para tabs
 - Se `isAuthenticated = false` → Mostra login
 - Se `isLoading = true` → Mostra loading
@@ -120,7 +124,7 @@ const handleLogin = async () => {
   try {
     // Simula chamada de API
     await new Promise((resolve) => setTimeout(resolve, 300));
-    
+
     // Navega para home SEM validação
     router.replace('/(tabs)');
   } finally {
@@ -130,6 +134,7 @@ const handleLogin = async () => {
 ```
 
 **Comportamento:**
+
 - ✅ Clique em "Entrar" executa login automático
 - ✅ NÃO valida email/senha (deixa em branco!)
 - ✅ Simula API call (300ms)
@@ -143,11 +148,12 @@ const { logout } = useAuthContext();
 
 const handleLogout = async () => {
   await logout();
-  router.replace('/');  // Volta para login
+  router.replace('/'); // Volta para login
 };
 ```
 
 **Comportamento:**
+
 - ✅ Botão "Fazer Logout" em Settings
 - ✅ Limpa usuário do contexto
 - ✅ Volta para tela de login
@@ -163,13 +169,13 @@ import { useAuthContext } from '@/frontend/contexts/AuthContext';
 
 export function MyComponent() {
   const { isAuthenticated, user, isLoading } = useAuthContext();
-  
+
   if (isLoading) return <Loading />;
-  
+
   if (isAuthenticated) {
     return <Text>Olá, {user?.fullName}!</Text>;
   }
-  
+
   return <Text>Não autenticado</Text>;
 }
 ```
@@ -179,7 +185,7 @@ export function MyComponent() {
 ```typescript
 const { login } = useAuthContext();
 
-await login();  // Faz login automático
+await login(); // Faz login automático
 ```
 
 ### 3. Fazer Logout
@@ -189,7 +195,7 @@ const { logout } = useAuthContext();
 const router = useRouter();
 
 await logout();
-router.replace('/');  // Volta para login
+router.replace('/'); // Volta para login
 ```
 
 ---
@@ -217,6 +223,7 @@ export const mockCurrentUser: UserProfile = {
 ```
 
 **Campos:**
+
 - Nome: João Silva
 - ID: 1
 - 342 amigos
@@ -304,11 +311,13 @@ frontend/
 ```
 
 **Mostra:**
+
 - Enquanto verifica autenticação
 - Enquanto faz login
 - Enquanto faz logout
 
 **Tempo:**
+
 - Check: ~100ms (simulado)
 - Login: ~300ms (simulado)
 - Logout: ~300ms (simulado)
@@ -341,7 +350,7 @@ const login = async (email: string, password: string) => {
     email,
     password,
   });
-  
+
   if (error) throw error;
   setUser(data.user);
   setIsAuthenticated(true);
@@ -380,7 +389,8 @@ Clique em [Connect to Supabase](#open-mcp-popover) para conectar banco de dados.
 
 **Causa:** Componente não está envolvido pelo AuthProvider
 
-**Solução:** 
+**Solução:**
+
 1. Verifique se `_layout.tsx` envolve com `<AuthProvider>`
 2. Verifique se componente está dentro da árvore
 
@@ -389,6 +399,7 @@ Clique em [Connect to Supabase](#open-mcp-popover) para conectar banco de dados.
 **Causa:** `router.replace()` pode não navegar corretamente
 
 **Solução:**
+
 1. Verifique se `expo-router` está importado
 2. Verifique se está usando `useRouter()`
 3. Tente usar `router.push()` ao invés de `replace()`
@@ -398,6 +409,7 @@ Clique em [Connect to Supabase](#open-mcp-popover) para conectar banco de dados.
 **Causa:** `RootRedirect` não detecta mudança de `isAuthenticated`
 
 **Solução:**
+
 1. Verifique se `useEffect` tem `isAuthenticated` como dependência
 2. Adicione `console.log()` para debug
 3. Verifique se `logout()` realmente seta `false`
@@ -415,19 +427,20 @@ Clique em [Connect to Supabase](#open-mcp-popover) para conectar banco de dados.
 
 ## Sumário
 
-| Item | Status | Implementado |
-|------|--------|---|
-| AuthContext | ✅ | Sim |
-| AuthProvider | ✅ | Sim |
-| Auto-login | ✅ | Sim |
-| Login sem validação | ✅ | Sim |
-| Logout | ✅ | Sim |
-| Persistência | ❌ | Não (futura) |
-| Backend real | ❌ | Não (futura) |
+| Item                | Status | Implementado |
+| ------------------- | ------ | ------------ |
+| AuthContext         | ✅     | Sim          |
+| AuthProvider        | ✅     | Sim          |
+| Auto-login          | ✅     | Sim          |
+| Login sem validação | ✅     | Sim          |
+| Logout              | ✅     | Sim          |
+| Persistência        | ❌     | Não (futura) |
+| Backend real        | ❌     | Não (futura) |
 
 ---
 
 **Próxima vez que abrir o app:**
+
 1. Vê tela de login
 2. Clica em "Entrar"
 3. Autenticado automaticamente

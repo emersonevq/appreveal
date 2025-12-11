@@ -47,9 +47,7 @@ export function ScrapsList({
               <View className="flex-row items-center gap-3 flex-1">
                 <Avatar
                   source={
-                    scrap.authorAvatar
-                      ? { uri: scrap.authorAvatar }
-                      : undefined
+                    scrap.authorAvatar ? { uri: scrap.authorAvatar } : undefined
                   }
                   initials={scrap.authorInitials}
                   size="sm"

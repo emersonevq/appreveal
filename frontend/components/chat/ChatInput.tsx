@@ -40,10 +40,7 @@ export function ChatInput({
           <Text className="text-blue-700 text-sm font-semibold flex-1">
             Editando mensagem...
           </Text>
-          <Pressable
-            onPress={handleCancel}
-            className="active:opacity-70"
-          >
+          <Pressable onPress={handleCancel} className="active:opacity-70">
             <X size={16} color="#3b82f6" />
           </Pressable>
         </View>

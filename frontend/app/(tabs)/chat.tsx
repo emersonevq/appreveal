@@ -10,7 +10,9 @@ export default function ChatScreen() {
   const [selectedConversation, setSelectedConversation] = useState(
     mockConversations[0],
   );
-  const [messages, setMessages] = useState<ChatMessageType[]>(selectedConversation.messages);
+  const [messages, setMessages] = useState<ChatMessageType[]>(
+    selectedConversation.messages,
+  );
   const [editingMessageId, setEditingMessageId] = useState<string | null>(null);
   const [editingText, setEditingText] = useState('');
 
@@ -102,12 +104,8 @@ export default function ChatScreen() {
               <ChatMessage
                 key={message.id}
                 message={message}
-                onEdit={
-                  message.isOwn ? handleEditMessage : undefined
-                }
-                onDelete={
-                  message.isOwn ? handleDeleteMessage : undefined
-                }
+                onEdit={message.isOwn ? handleEditMessage : undefined}
+                onDelete={message.isOwn ? handleDeleteMessage : undefined}
                 onCopy={handleCopyMessage}
                 showAvatar={true}
               />

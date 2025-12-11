@@ -3,6 +3,7 @@
 ## Como as Funcionalidades Funcionam
 
 ### 1. Ver Próprio Perfil
+
 ```
 Tab "Profile" → Exibe perfil próprio com:
   - Foto de capa e avatar
@@ -14,6 +15,7 @@ Tab "Profile" → Exibe perfil próprio com:
 ```
 
 ### 2. Ver Perfil de Outro Usuário
+
 ```
 Home → Clique em nome de usuário → Abre perfil público:
   - Mesmas informações mas sem editar
@@ -23,6 +25,7 @@ Home → Clique em nome de usuário → Abre perfil público:
 ```
 
 ### 3. Enviar Mensagem
+
 ```
 Tab "Chat" ou Perfil → Clique "Enviar Mensagem" →
 Lista de conversas (esquerda) + Chat (direita):
@@ -32,6 +35,7 @@ Lista de conversas (esquerda) + Chat (direita):
 ```
 
 ### 4. Editar/Deletar Mensagem
+
 ```
 No chat, na sua mensagem (azul à direita):
   - ✏️ Editar = Modo edição ativa
@@ -40,13 +44,14 @@ No chat, na sua mensagem (azul à direita):
 ```
 
 ### 5. Usar Tela Inicial
+
 ```
 Home → 4 seções no topo:
   - Amigos (342) → Alert
   - Posts (48) → Alert
   - Mensagens (5) → Vai para Chat Tab
   - Notificações (0) → Alert
-  
+
   Feed abaixo com posts curtíveis/comentáveis/compartilháveis
 ```
 
@@ -55,6 +60,7 @@ Home → 4 seções no topo:
 ## Estrutura de Dados
 
 ### UserProfile
+
 ```typescript
 {
   id: "1",
@@ -71,6 +77,7 @@ Home → 4 seções no topo:
 ```
 
 ### Post
+
 ```typescript
 {
   id: "post1",
@@ -88,6 +95,7 @@ Home → 4 seções no topo:
 ```
 
 ### ChatMessage
+
 ```typescript
 {
   id: "msg1",
@@ -102,6 +110,7 @@ Home → 4 seções no topo:
 ```
 
 ### Scrap
+
 ```typescript
 {
   id: "scrap1",
@@ -113,6 +122,7 @@ Home → 4 seções no topo:
 ```
 
 ### Testimonial
+
 ```typescript
 {
   id: "test1",
@@ -128,6 +138,7 @@ Home → 4 seções no topo:
 ## Componentes Principais
 
 ### ProfileCard
+
 ```tsx
 import { ProfileCard } from '@/frontend/components/profile';
 
@@ -136,13 +147,15 @@ import { ProfileCard } from '@/frontend/components/profile';
   isOwnProfile={true}
   onEdit={handleEdit}
   onFriendClick={handleFriends}
-/>
+/>;
 ```
+
 ✅ Reutilizável
 ✅ Proteção contra edição
 ✅ Props bem tipadas
 
 ### ChatMessage
+
 ```tsx
 import { ChatMessage } from '@/frontend/components/chat';
 
@@ -152,13 +165,15 @@ import { ChatMessage } from '@/frontend/components/chat';
   onDelete={handleDelete}
   onCopy={handleCopy}
   showAvatar={true}
-/>
+/>;
 ```
+
 ✅ Própria mensagem (azul)
 ✅ Outra mensagem (cinza)
 ✅ Botões contextuais
 
 ### PostCard
+
 ```tsx
 import { PostCard } from '@/frontend/components/home';
 
@@ -168,13 +183,15 @@ import { PostCard } from '@/frontend/components/home';
   onComment={handleComment}
   onShare={handleShare}
   onUserPress={handleUserPress}
-/>
+/>;
 ```
+
 ✅ Feed de posts
 ✅ Interações completas
 ✅ Imagem opcional
 
 ### StatsBar
+
 ```tsx
 import { StatsBar } from '@/frontend/components/home';
 
@@ -184,8 +201,9 @@ import { StatsBar } from '@/frontend/components/home';
   onPostsPress={() => {}}
   onMessagesPress={() => {}}
   onNotificationsPress={() => {}}
-/>
+/>;
 ```
+
 ✅ 4 seções clicáveis
 ✅ Badges de contagem
 ✅ Ícones coloridos
@@ -195,6 +213,7 @@ import { StatsBar } from '@/frontend/components/home';
 ## Mock Data
 
 ### Importar
+
 ```typescript
 import {
   mockCurrentUser,
@@ -208,6 +227,7 @@ import {
 ```
 
 ### Dados Disponíveis
+
 - ✅ 1 usuário atual + 3 outros
 - ✅ 4 posts no feed + 3 do usuário + 1 marcado
 - ✅ 3 conversas com 5+ mensagens
@@ -248,6 +268,7 @@ Tabs Layout (Home, Chat, Search, Profile, Settings)
 ## Adicionar Nova Feature
 
 ### 1. Criar Tipo
+
 ```typescript
 // frontend/types/my-feature.ts
 export interface MyFeature {
@@ -258,6 +279,7 @@ export interface MyFeature {
 ```
 
 ### 2. Criar Mock
+
 ```typescript
 // frontend/mocks/my-feature.ts
 export const mockMyFeatures: MyFeature[] = [
@@ -266,6 +288,7 @@ export const mockMyFeatures: MyFeature[] = [
 ```
 
 ### 3. Criar Componente
+
 ```typescript
 // frontend/components/my-feature/MyComponent.tsx
 import type { MyFeature } from '@/frontend/types/my-feature';
@@ -276,12 +299,14 @@ export function MyComponent({ feature }: { feature: MyFeature }) {
 ```
 
 ### 4. Exportar
+
 ```typescript
 // frontend/components/my-feature/index.ts
 export { MyComponent } from './MyComponent';
 ```
 
 ### 5. Usar em Tela
+
 ```typescript
 import { MyComponent } from '@/frontend/components/my-feature';
 import { mockMyFeatures } from '@/frontend/mocks';
@@ -296,6 +321,7 @@ export default function MyScreen() {
 ## Integrar com Backend
 
 ### 1. Substituir Mocks
+
 ```typescript
 // Antes
 import { mockPosts } from '@/frontend/mocks';
@@ -306,16 +332,15 @@ const posts = await fetchPostsFromAPI();
 ```
 
 ### 2. Usar Supabase
+
 ```typescript
 import { supabase } from '@/frontend/lib/supabase';
 
-const { data, error } = await supabase
-  .from('posts')
-  .select('*')
-  .limit(10);
+const { data, error } = await supabase.from('posts').select('*').limit(10);
 ```
 
 ### 3. Adicionar Loading
+
 ```typescript
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState(null);
@@ -333,6 +358,7 @@ useEffect(() => {
 ## Debugging
 
 ### Ver Console
+
 ```typescript
 console.log('Mensagem:', message);
 console.warn('Aviso:', warning);
@@ -340,15 +366,15 @@ console.error('Erro:', error);
 ```
 
 ### Alerts para Testes
+
 ```typescript
 import { Alert } from 'react-native';
 
-Alert.alert('Título', 'Mensagem', [
-  { text: 'OK', onPress: () => {} }
-]);
+Alert.alert('Título', 'Mensagem', [{ text: 'OK', onPress: () => {} }]);
 ```
 
 ### Verificar Props
+
 ```typescript
 export function MyComponent(props: MyComponentProps) {
   console.log('Props:', props); // Debug
@@ -361,6 +387,7 @@ export function MyComponent(props: MyComponentProps) {
 ## Performance
 
 ### Memo para Componentes
+
 ```typescript
 import { memo } from 'react';
 
@@ -370,6 +397,7 @@ export const ChatMessage = memo(function ChatMessage(props) {
 ```
 
 ### Lazy Loading
+
 ```typescript
 import { lazy, Suspense } from 'react';
 
@@ -381,6 +409,7 @@ const HeavyComponent = lazy(() => import('./Heavy'));
 ```
 
 ### List Optimization
+
 ```typescript
 <FlatList
   data={items}
@@ -396,6 +425,7 @@ const HeavyComponent = lazy(() => import('./Heavy'));
 ## Estilos com Tailwind
 
 ### Classes Úteis
+
 ```
 Espaçamento: gap-2, gap-3, gap-4, px-6, py-4
 Cores: bg-blue-500, text-gray-900, border-gray-200
@@ -407,8 +437,9 @@ Opacity: opacity-70, active:opacity-50
 ```
 
 ### Responsive
+
 ```typescript
-className="px-4 md:px-6 lg:px-8" // Web responsive
+className = 'px-4 md:px-6 lg:px-8'; // Web responsive
 // Mobile-first no React Native
 ```
 
@@ -417,6 +448,7 @@ className="px-4 md:px-6 lg:px-8" // Web responsive
 ## Icons (Lucide)
 
 ### Usar
+
 ```typescript
 import { Heart, MessageCircle, Share2, User } from 'lucide-react-native';
 
@@ -427,6 +459,7 @@ import { Heart, MessageCircle, Share2, User } from 'lucide-react-native';
 ```
 
 ### Props
+
 - `size` - Tamanho (16, 20, 24, 48, etc)
 - `color` - Cor (hex ou nome)
 - `fill` - Preenchimento (para ícones sólidos)
@@ -437,6 +470,7 @@ import { Heart, MessageCircle, Share2, User } from 'lucide-react-native';
 ## Troubleshooting
 
 ### Erro: "Module not found"
+
 ```
 Verifique o path: @/frontend/... (com @/)
 Crie arquivo: touch file.tsx
@@ -444,12 +478,14 @@ Exporte em index.ts
 ```
 
 ### Erro: "Type is not assignable"
+
 ```
 Adicione type annotation: const arr: MyType[] = [];
 Ou use inferência: const arr = [] as const;
 ```
 
 ### Componente não renderiza
+
 ```
 Verifique:
 - Componente exportado?
@@ -459,6 +495,7 @@ Verifique:
 ```
 
 ### Chat não atualiza
+
 ```
 Use setState, não mutação direta
 setMessages([...messages, newMsg])

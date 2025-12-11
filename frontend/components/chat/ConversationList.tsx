@@ -26,9 +26,7 @@ export function ConversationList({
         >
           <View className="relative">
             <Avatar
-              source={
-                item.userAvatar ? { uri: item.userAvatar } : undefined
-              }
+              source={item.userAvatar ? { uri: item.userAvatar } : undefined}
               initials={item.userInitials}
               size="md"
             />
@@ -45,9 +43,7 @@ export function ConversationList({
           <View className="flex-1">
             <Text
               className={`font-semibold ${
-                item.unreadCount > 0
-                  ? 'text-gray-900'
-                  : 'text-gray-700'
+                item.unreadCount > 0 ? 'text-gray-900' : 'text-gray-700'
               }`}
             >
               {item.userFullName}
@@ -55,9 +51,7 @@ export function ConversationList({
 
             <Text
               className={`text-sm mt-0.5 line-clamp-1 ${
-                item.unreadCount > 0
-                  ? 'text-gray-700'
-                  : 'text-gray-600'
+                item.unreadCount > 0 ? 'text-gray-700' : 'text-gray-600'
               }`}
             >
               {item.lastMessage}

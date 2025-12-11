@@ -5,6 +5,7 @@
 ### Componentes Criados
 
 **ProfileCard** (`frontend/components/profile/ProfileCard.tsx`)
+
 - Componente reutilizável que exibe o perfil do usuário
 - **Proteção de edição**: Mostra botão de editar apenas para o proprietário do perfil
 - **Proteção contra mensagens**: Mostra botão de mensagem apenas para visualizar perfil de outro usuário
@@ -15,6 +16,7 @@
 - Responsivo e com active states
 
 ### Funcionalidades
+
 - ✅ Editar perfil próprio
 - ✅ Enviar mensagem (apenas para outros perfis)
 - ✅ Ver estatísticas de amigos
@@ -28,6 +30,7 @@
 ### Componentes Criados
 
 **ChatMessage** (`frontend/components/chat/ChatMessage.tsx`)
+
 - Mensagens próprias alinhadas à direita (azul)
 - Mensagens de outros alinhadas à esquerda (cinza)
 - Suporte a edição de mensagens
@@ -37,6 +40,7 @@
 - Avatar do remetente (opcional)
 
 **ChatInput** (`frontend/components/chat/ChatInput.tsx`)
+
 - Input com suporte a múltiplas linhas
 - Botão de envio com estado desabilitado
 - Modo de edição com indicação visual
@@ -44,6 +48,7 @@
 - Limite de 500 caracteres
 
 **ConversationList** (`frontend/components/chat/ConversationList.tsx`)
+
 - Lista de conversas com usuários
 - Badge de contagem de mensagens não lidas
 - Último texto/hora da conversa
@@ -51,12 +56,14 @@
 - Indicador visual de conversa selecionada
 
 ### Mocks de Dados
+
 - 3 conversas pré-carregadas
 - 5+ mensagens por conversa
 - Usuários com avatares reais
 - Timestamps realistas
 
 ### Funcionalidades
+
 - ✅ Enviar mensagens
 - ✅ Editar mensagens enviadas
 - ✅ Apagar mensagens para todos
@@ -72,6 +79,7 @@
 ### Componentes Criados
 
 **StatsBar** (`frontend/components/home/StatsBar.tsx`)
+
 - Barra com 4 seções: Amigos, Posts, Mensagens, Notificações
 - Cada seção é clicável
 - Ícones coloridos em fundo colorido
@@ -79,6 +87,7 @@
 - Layout horizontal flexível
 
 **PostCard** (`frontend/components/home/PostCard.tsx`)
+
 - Postagem com avatar do autor
 - Conteúdo de texto
 - Imagem opcional
@@ -88,6 +97,7 @@
 - Estado de "curtida" (coração preenchido)
 
 ### Funcionalidades
+
 - ✅ Exibir quantidade de amigos
 - ✅ Exibir quantidade de posts
 - ✅ Ícone de chat com contagem de mensagens não lidas
@@ -104,6 +114,7 @@
 ### Componentes Criados
 
 **ScrapsList** (`frontend/components/profile/ScrapsList.tsx`)
+
 - Exibição de scraps (bilhetes deixados por amigos)
 - Foto + nome + data do scrap
 - Botão de responder (apenas para perfil alheio)
@@ -111,6 +122,7 @@
 - Indicador de "sem scraps"
 
 **TestimonialsList** (`frontend/components/profile/TestimonialsList.tsx`)
+
 - Exibição de depoimentos/recomendações
 - Fundo amarelo para destaque
 - Estrelas de 5 (preenchidas)
@@ -119,6 +131,7 @@
 - Indicador de "sem depoimentos"
 
 **PostsList** (`frontend/components/profile/PostsList.tsx`)
+
 - Seção de posts próprios
 - Seção de posts em que foi marcado
 - Cada post com foto do autor, conteúdo, imagem
@@ -129,6 +142,7 @@
 ### Telas Criadas
 
 **profile.tsx** (Próprio Perfil)
+
 - ProfileCard com opção de editar
 - Lista de scraps com deletar
 - Lista de depoimentos
@@ -136,6 +150,7 @@
 - Seção "Marcado em"
 
 **user-profile.tsx** (Perfil de Outros Usuários)
+
 - ProfileCard com opção de enviar mensagem
 - Lista de scraps com responder
 - Lista de depoimentos
@@ -144,6 +159,7 @@
 - Proteção contra edição
 
 ### Funcionalidades
+
 - ✅ Exibição de scraps com estilos inline CSS
 - ✅ Exibição de depoimentos com estrelas
 - ✅ Posts próprios e marcado em
@@ -156,6 +172,7 @@
 ## 5. Tela de Chat/Mensagens (✅ Completo)
 
 ### Funcionalidades
+
 - ✅ Lista de conversas na esquerda (25% da tela)
 - ✅ Chat principal na direita (75% da tela)
 - ✅ Exibição de mensagens com avatares
@@ -220,6 +237,7 @@ frontend/
 ## Tipos de Dados Criados
 
 ### Post
+
 ```typescript
 interface Post {
   id: string;
@@ -239,6 +257,7 @@ interface Post {
 ```
 
 ### Chat
+
 ```typescript
 interface ChatMessage {
   id: string;
@@ -267,6 +286,7 @@ interface Conversation {
 ```
 
 ### Usuário
+
 ```typescript
 interface UserProfile {
   id: string;
@@ -307,26 +327,31 @@ interface Testimonial {
 ## Dados Mock Inclusos
 
 ### Users
+
 - 1 usuário atual (João Silva)
 - 3 usuários adicionais para visualização de perfil
 
 ### Posts
+
 - 4 posts no feed geral
 - 3 posts do usuário atual
 - 1 post onde o usuário foi marcado
 
 ### Chats
+
 - 3 conversas pré-carregadas
 - 5+ mensagens na conversa principal
 - Contadores de não lidas
 - Timestamps realistas
 
 ### Scraps
+
 - 3 scraps no perfil
 - Autores diferentes
 - Datas variadas
 
 ### Depoimentos
+
 - 2 depoimentos
 - Com estrelas de 5
 - Conteúdo completo
@@ -387,13 +412,17 @@ interface Testimonial {
 ## Como Usar
 
 ### Navegar para Chat
+
 Clique no ícone "Mensagens" na barra de abas inferior para acessar o chat completo com todas as funcionalidades de edição e exclusão.
 
 ### Acessar Próprio Perfil
+
 Clique no ícone "Profile" na barra de abas inferior para ver o seu perfil com opção de editar.
 
 ### Acessar Perfil de Outro Usuário
+
 Clique no nome de um usuário em qualquer post ou no seu próprio perfil para visualizar o perfil dele com opção de enviar mensagem.
 
 ### Usar Tela Inicial
+
 Na tela de início, use a barra de estatísticas para acessar diferentes seções (amigos, posts, mensagens, notificações).

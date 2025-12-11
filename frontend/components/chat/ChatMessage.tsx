@@ -41,9 +41,7 @@ export function ChatMessage({
     >
       {!isOwn && showAvatar && (
         <Avatar
-          source={
-            message.userAvatar ? { uri: message.userAvatar } : undefined
-          }
+          source={message.userAvatar ? { uri: message.userAvatar } : undefined}
           initials={message.userInitials}
           size="sm"
         />
@@ -61,9 +59,7 @@ export function ChatMessage({
             </Text>
           )}
           <Text
-            className={`leading-5 ${
-              isOwn ? 'text-white' : 'text-gray-900'
-            }`}
+            className={`leading-5 ${isOwn ? 'text-white' : 'text-gray-900'}`}
           >
             {message.content}
           </Text>

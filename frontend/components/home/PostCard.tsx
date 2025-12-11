@@ -1,5 +1,10 @@
 import { View, Text, Image, Pressable } from 'react-native';
-import { Heart, MessageCircle, Share2, MoreVertical } from 'lucide-react-native';
+import {
+  Heart,
+  MessageCircle,
+  Share2,
+  MoreVertical,
+} from 'lucide-react-native';
 import { Avatar } from '@/frontend/components/Avatar';
 import type { Post } from '@/frontend/types/post';
 
@@ -84,7 +89,8 @@ export function PostCard({
             {post.comments} {post.comments === 1 ? 'comentário' : 'comentários'}
           </Text>
           <Text className="text-xs text-gray-600">
-            {post.shares} {post.shares === 1 ? 'compartilhamento' : 'compartilhamentos'}
+            {post.shares}{' '}
+            {post.shares === 1 ? 'compartilhamento' : 'compartilhamentos'}
           </Text>
         </View>
       </View>
@@ -114,9 +120,7 @@ export function PostCard({
           className="flex-1 flex-row items-center justify-center gap-2 py-3 active:bg-gray-50 border-r border-gray-100"
         >
           <MessageCircle size={18} color="#6b7280" />
-          <Text className="text-sm font-semibold text-gray-600">
-            Comentar
-          </Text>
+          <Text className="text-sm font-semibold text-gray-600">Comentar</Text>
         </Pressable>
 
         <Pressable

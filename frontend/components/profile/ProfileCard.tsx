@@ -36,7 +36,11 @@ export function ProfileCard({
       <View className="px-6 pb-6">
         {/* Avatar positioned over cover */}
         <View className="flex-row items-end justify-between -mt-12 mb-4">
-          <Avatar source={user.avatar ? { uri: user.avatar } : undefined} initials={user.initials} size="xl" />
+          <Avatar
+            source={user.avatar ? { uri: user.avatar } : undefined}
+            initials={user.initials}
+            size="xl"
+          />
 
           <View className="flex-row gap-3">
             {isOwnProfile && onEdit && (

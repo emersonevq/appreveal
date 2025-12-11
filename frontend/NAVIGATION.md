@@ -51,6 +51,7 @@
 ```
 
 **Ações:**
+
 - Clique em **Amigos** → Ver lista de amigos
 - Clique em **Posts** → Ver todos os seus posts
 - Clique em **Mensagens** → Ir para aba de chat
@@ -95,6 +96,7 @@
 ```
 
 **Ações:**
+
 - Clique em **conversa** → Selecionar conversa
 - **Digite mensagem** → Escrever mensagem
 - Clique em **▶** → Enviar mensagem
@@ -159,6 +161,7 @@
 ```
 
 **Ações:**
+
 - Clique em **✏️** → Editar perfil
 - Clique em **Amigos** → Ver lista de amigos
 - Clique em **🗑️ Deletar** (scrap) → Remover scrap
@@ -215,6 +218,7 @@
 ```
 
 **Ações:**
+
 - Clique em **💬** → Enviar mensagem (vai para chat)
 - Clique em **Amigos** → Ver lista de amigos
 - Clique em **[Responder Scrap]** → Deixar um scrap/resposta
@@ -225,24 +229,25 @@
 
 ## Resumo de Navegação
 
-| Tela/Ação | Vai Para | Atalho |
-|-----------|----------|---------|
-| Home → Clique nome usuário | Perfil Public | ✓ |
-| Home → Clique em "Mensagens" | Chat Tab | ✓ |
-| Home → Clique em "Amigos" | Alert (futura lista) | ✓ |
-| Home → Clique em "Posts" | Alert (futuros posts) | ✓ |
-| Chat → Selecionar conversa | Abre chat | ✓ |
-| Chat → Enviar/Editar | Atualiza conversa | ✓ |
-| Profile Tab → Ver próprio | Meu Perfil | ✓ |
-| Profile → Clique editar | Alert (futura tela) | ✓ |
-| Profile Public → Clique msg | Chat | ✓ |
-| Profile Public → Responder | Alert (deixa scrap) | ✓ |
+| Tela/Ação                    | Vai Para              | Atalho |
+| ---------------------------- | --------------------- | ------ |
+| Home → Clique nome usuário   | Perfil Public         | ✓      |
+| Home → Clique em "Mensagens" | Chat Tab              | ✓      |
+| Home → Clique em "Amigos"    | Alert (futura lista)  | ✓      |
+| Home → Clique em "Posts"     | Alert (futuros posts) | ✓      |
+| Chat → Selecionar conversa   | Abre chat             | ✓      |
+| Chat → Enviar/Editar         | Atualiza conversa     | ✓      |
+| Profile Tab → Ver próprio    | Meu Perfil            | ✓      |
+| Profile → Clique editar      | Alert (futura tela)   | ✓      |
+| Profile Public → Clique msg  | Chat                  | ✓      |
+| Profile Public → Responder   | Alert (deixa scrap)   | ✓      |
 
 ---
 
 ## Funcionalidades por Tela
 
 ### 🏠 Home
+
 - [x] Visualizar estatísticas
 - [x] Feed de postagens
 - [x] Curtir/comentar/compartilhar
@@ -250,6 +255,7 @@
 - [x] Navegar para mensagens
 
 ### 💬 Chat
+
 - [x] Listar conversas
 - [x] Enviar mensagens
 - [x] Editar mensagens
@@ -258,6 +264,7 @@
 - [x] Ver contagem de não lidas
 
 ### 👤 Meu Perfil
+
 - [x] Visualizar informações do perfil
 - [x] Editar perfil (botão)
 - [x] Visualizar scraps
@@ -267,6 +274,7 @@
 - [x] Visualizar posts onde foi marcado
 
 ### 👥 Perfil de Outro Usuário
+
 - [x] Visualizar informações
 - [x] Enviar mensagem
 - [x] Visualizar scraps
