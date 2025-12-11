@@ -1,88 +1,105 @@
-import { View, Text, ScrollView, Pressable } from 'react-native';
-import {
-  User,
-  Mail,
-  MapPin,
-  Calendar,
-  ExternalLink,
-} from 'lucide-react-native';
+import { View, Text, ScrollView, Alert } from 'react-native';
+import { ProfileCard } from '@/frontend/components/profile/ProfileCard';
+import { ScrapsList } from '@/frontend/components/profile/ScrapsList';
+import { TestimonialsList } from '@/frontend/components/profile/TestimonialsList';
+import { PostsList } from '@/frontend/components/profile/PostsList';
+import { mockCurrentUser } from '@/frontend/mocks/users';
+import { mockScraps, mockTestimonials } from '@/frontend/mocks/scraps';
+import { mockUserPosts } from '@/frontend/mocks/posts';
 
 export default function ProfileScreen() {
+  const userPosts = mockUserPosts.filter(
+    (post) => post.userId === '1',
+  );
+  const taggedPosts = mockUserPosts.filter(
+    (post) => post.taggedUsers?.includes('João Silva'),
+  );
+
+  const handleEditProfile = () => {
+    Alert.alert('Editar Perfil', 'Abrir formulário de edição');
+  };
+
+  const handleMessage = () => {
+    Alert.alert('Enviar Mensagem', 'Abrir chat com este usuário');
+  };
+
+  const handleDeleteScrap = (scrapId: string) => {
+    Alert.alert('Deletar Scrap', 'Scrap removido com sucesso');
+  };
+
+  const handleReplyScrap = (scrapId: string) => {
+    Alert.alert('Responder Scrap', `Respondendo ao scrap ${scrapId}`);
+  };
+
+  const handlePostPress = (postId: string) => {
+    Alert.alert('Post', `Abrindo post ${postId}`);
+  };
+
+  const handleDeletePost = (postId: string) => {
+    Alert.alert('Deletar Post', 'Post removido com sucesso');
+  };
+
+  const handleLikePost = (postId: string) => {
+    Alert.alert('Curtir', `Post ${postId} curtido`);
+  };
+
+  const handleFriendClick = () => {
+    Alert.alert('Amigos', 'Abrir lista de amigos');
+  };
+
   return (
     <View className="flex-1 bg-gray-50">
+      {/* Header */}
       <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200">
-        <Text className="text-3xl font-bold text-gray-900">Profile</Text>
+        <Text className="text-3xl font-bold text-gray-900">Meu Perfil</Text>
       </View>
 
-      <ScrollView className="flex-1">
-        <View className="bg-white p-6 border-b border-gray-200">
-          <View className="items-center">
-            <View className="w-24 h-24 bg-blue-500 rounded-full items-center justify-center mb-4">
-              <User size={48} color="#ffffff" />
-            </View>
+      <ScrollView
+        className="flex-1"
+        showsVerticalScrollIndicator={false}
+      >
+        <View className="px-6 py-6 gap-6">
+          {/* Profile Card */}
+          <ProfileCard
+            user={mockCurrentUser}
+            isOwnProfile={true}
+            onEdit={handleEditProfile}
+            onFriendClick={handleFriendClick}
+          />
 
-            <Text className="text-2xl font-bold text-gray-900 mb-1">
-              John Doe
-            </Text>
-            <Text className="text-gray-600 mb-4">@johndoe</Text>
+          {/* Scraps Section */}
+          <ScrapsList
+            scraps={mockScraps}
+            isOwnProfile={true}
+            onDeleteScrap={handleDeleteScrap}
+          />
 
-            <Pressable className="bg-blue-500 px-8 py-3 rounded-xl active:bg-blue-600">
-              <Text className="text-white font-semibold">Edit Profile</Text>
-            </Pressable>
-          </View>
-        </View>
+          {/* Testimonials Section */}
+          <TestimonialsList
+            testimonials={mockTestimonials}
+            isOwnProfile={true}
+          />
 
-        <View className="bg-white mt-4 p-6">
-          <Text className="text-lg font-semibold text-gray-900 mb-4">
-            About
-          </Text>
+          {/* User Posts Section */}
+          <PostsList
+            posts={userPosts}
+            title="Meus Posts"
+            isOwnProfile={true}
+            onPostPress={handlePostPress}
+            onDelete={handleDeletePost}
+            onLike={handleLikePost}
+          />
 
-          <View className="space-y-4">
-            <View className="flex-row items-center">
-              <Mail size={20} color="#64748b" />
-              <Text className="text-gray-700 ml-3">john.doe@example.com</Text>
-            </View>
-
-            <View className="flex-row items-center">
-              <MapPin size={20} color="#64748b" />
-              <Text className="text-gray-700 ml-3">San Francisco, CA</Text>
-            </View>
-
-            <View className="flex-row items-center">
-              <Calendar size={20} color="#64748b" />
-              <Text className="text-gray-700 ml-3">Joined January 2024</Text>
-            </View>
-
-            <View className="flex-row items-center">
-              <ExternalLink size={20} color="#64748b" />
-              <Text className="text-blue-500 ml-3">
-                www.example.com/johndoe
-              </Text>
-            </View>
-          </View>
-        </View>
-
-        <View className="bg-white mt-4 p-6">
-          <Text className="text-lg font-semibold text-gray-900 mb-4">
-            Stats
-          </Text>
-
-          <View className="flex-row justify-around">
-            <View className="items-center">
-              <Text className="text-2xl font-bold text-gray-900">42</Text>
-              <Text className="text-gray-600 mt-1">Posts</Text>
-            </View>
-
-            <View className="items-center">
-              <Text className="text-2xl font-bold text-gray-900">1.2K</Text>
-              <Text className="text-gray-600 mt-1">Followers</Text>
-            </View>
-
-            <View className="items-center">
-              <Text className="text-2xl font-bold text-gray-900">328</Text>
-              <Text className="text-gray-600 mt-1">Following</Text>
-            </View>
-          </View>
+          {/* Tagged Posts Section */}
+          {taggedPosts.length > 0 && (
+            <PostsList
+              posts={taggedPosts}
+              title="Marcado em"
+              isOwnProfile={true}
+              onPostPress={handlePostPress}
+              onLike={handleLikePost}
+            />
+          )}
         </View>
       </ScrollView>
     </View>
