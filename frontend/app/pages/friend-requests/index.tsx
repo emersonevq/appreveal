@@ -54,7 +54,7 @@ export default function FriendRequestsScreen() {
   };
 
   const handleViewProfile = (userId: string) => {
-    router.push(`/user-profile?id=${userId}`);
+    router.push(`/pages/user-profile?id=${userId}`);
   };
 
   return (

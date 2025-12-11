@@ -7,7 +7,7 @@ export default function FriendsScreen() {
   const router = useRouter();
 
   const handleViewProfile = (userId: string) => {
-    router.push(`/user-profile?id=${userId}`);
+    router.push(`/pages/user-profile?id=${userId}`);
   };
 
   const handleMessage = (userId: string) => {

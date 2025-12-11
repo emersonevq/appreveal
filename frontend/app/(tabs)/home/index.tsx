@@ -1,6 +1,12 @@
 import { View, Text, ScrollView, Pressable, Image } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Settings, MessageCircle, Users } from 'lucide-react-native';
+import {
+  Settings,
+  MessageCircle,
+  Users,
+  Bell,
+  Inbox,
+} from 'lucide-react-native';
 import { mockCurrentUser, mockUsers } from '@/frontend/mocks/users';
 import {
   friendsStatusList,
@@ -45,7 +51,7 @@ export default function HomeScreen() {
           </View>
 
           <Pressable
-            onPress={() => router.push('/profile')}
+            onPress={() => router.push('/(tabs)/profile')}
             className="flex-row items-center gap-2 px-4 py-2 border border-gray-300 rounded-full active:bg-gray-100"
           >
             <Settings size={16} color="#64748b" />
@@ -58,7 +64,7 @@ export default function HomeScreen() {
           <View className="flex-row gap-4">
             {/* Conversations Card */}
             <Pressable
-              onPress={() => router.push('/chat')}
+              onPress={() => router.push('/(tabs)/chat')}
               className="flex-1 bg-white rounded-2xl p-4 border border-gray-100 active:bg-gray-50"
             >
               <View className="flex-row items-center gap-3 mb-2">
@@ -92,6 +98,45 @@ export default function HomeScreen() {
                   <Text className="text-xs text-gray-600">
                     {mockUsers.length} conexões
                   </Text>
+                </View>
+              </View>
+            </Pressable>
+          </View>
+
+          {/* Notifications and Requests Cards */}
+          <View className="flex-row gap-4">
+            {/* Notifications Card */}
+            <Pressable
+              onPress={() => router.push('/pages/notifications')}
+              className="flex-1 bg-white rounded-2xl p-4 border border-gray-100 active:bg-gray-50"
+            >
+              <View className="flex-row items-center gap-3 mb-2">
+                <View className="w-10 h-10 bg-red-100 rounded-full items-center justify-center">
+                  <Bell size={20} color="#dc2626" />
+                </View>
+                <View className="flex-1">
+                  <Text className="font-bold text-gray-900 text-sm">
+                    Notificações
+                  </Text>
+                  <Text className="text-xs text-gray-600">2 novas</Text>
+                </View>
+              </View>
+            </Pressable>
+
+            {/* Requests Card */}
+            <Pressable
+              onPress={() => router.push('/pages/friend-requests')}
+              className="flex-1 bg-white rounded-2xl p-4 border border-gray-100 active:bg-gray-50"
+            >
+              <View className="flex-row items-center gap-3 mb-2">
+                <View className="w-10 h-10 bg-amber-100 rounded-full items-center justify-center">
+                  <Inbox size={20} color="#d97706" />
+                </View>
+                <View className="flex-1">
+                  <Text className="font-bold text-gray-900 text-sm">
+                    Solicitações
+                  </Text>
+                  <Text className="text-xs text-gray-600">3 pendentes</Text>
                 </View>
               </View>
             </Pressable>

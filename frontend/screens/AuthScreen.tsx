@@ -90,7 +90,7 @@ export function AuthScreen() {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 300));
       // After successful signup, navigate to home or verify email
-      router.replace('/(tabs)');
+      router.replace('/(tabs)/home');
     } catch (error) {
       setErrors({ email: 'Erro ao criar conta. Tente novamente.' });
     } finally {
@@ -106,7 +106,7 @@ export function AuthScreen() {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 300));
       // Navigate to home
-      router.replace('/(tabs)');
+      router.replace('/(tabs)/home');
     } catch (error) {
       setErrors({ email: 'Erro ao fazer login. Tente novamente.' });
     } finally {
