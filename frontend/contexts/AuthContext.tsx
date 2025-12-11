@@ -24,6 +24,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // Auto-login com usuário mock
       setUser(mockCurrentUser);
       setIsAuthenticated(true);
+    } catch (error) {
+      console.error('Login error:', error);
+      setIsAuthenticated(false);
     } finally {
       setIsLoading(false);
     }
@@ -36,6 +39,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       await new Promise((resolve) => setTimeout(resolve, 300));
       setUser(null);
       setIsAuthenticated(false);
+    } catch (error) {
+      console.error('Logout error:', error);
     } finally {
       setIsLoading(false);
     }
