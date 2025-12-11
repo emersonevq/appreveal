@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ScrollView, Pressable, Image } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Check, X } from 'lucide-react-native';
+import { Check, X, ChevronLeft } from 'lucide-react-native';
 
 interface FriendRequest {
   id: string;
@@ -60,13 +60,21 @@ export default function FriendRequestsScreen() {
   return (
     <View className="flex-1 bg-gray-50">
       {/* Header */}
-      <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200">
-        <Text className="text-3xl font-bold text-gray-900">
-          Solicitações de Amizade
-        </Text>
-        <Text className="text-sm text-gray-600 mt-1">
-          {requests.length} solicitação{requests.length !== 1 ? 's' : ''}
-        </Text>
+      <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200 flex-row items-center gap-3">
+        <Pressable
+          onPress={() => router.back()}
+          className="p-2 -ml-2"
+        >
+          <ChevronLeft size={24} color="#111827" />
+        </Pressable>
+        <View>
+          <Text className="text-2xl font-bold text-gray-900">
+            Solicitações
+          </Text>
+          <Text className="text-xs text-gray-600 mt-0.5">
+            {requests.length} pedido{requests.length !== 1 ? 's' : ''} de amizade
+          </Text>
+        </View>
       </View>
 
       {/* Requests List */}
@@ -99,7 +107,7 @@ export default function FriendRequestsScreen() {
                         {request.fullName}
                       </Text>
                       <Text className="text-xs text-gray-600">
-                        {request.mutualFriends} amigos em comum
+                        {request.mutualFriends} {request.mutualFriends === 1 ? 'amigo em comum' : 'amigos em comum'}
                       </Text>
                     </View>
                   </View>
@@ -119,7 +127,7 @@ export default function FriendRequestsScreen() {
                     className="flex-1 bg-gray-200 rounded-lg py-2 items-center justify-center flex-row gap-2 active:bg-gray-300"
                   >
                     <X size={18} color="#6b7280" />
-                    <Text className="text-gray-700 font-semibold">Rejeitar</Text>
+                    <Text className="text-gray-700 font-semibold">Recusar</Text>
                   </Pressable>
                 </View>
               </Pressable>
@@ -130,8 +138,14 @@ export default function FriendRequestsScreen() {
         <View className="flex-1 items-center justify-center">
           <Check size={48} color="#d1d5db" />
           <Text className="text-gray-600 text-center mt-4">
-            Nenhuma solicitação de amizade
+            Nenhum pedido de amizade
           </Text>
+          <Pressable
+            onPress={() => router.back()}
+            className="mt-4 bg-blue-500 rounded-lg px-6 py-2"
+          >
+            <Text className="text-white font-semibold">Voltar</Text>
+          </Pressable>
         </View>
       )}
     </View>
