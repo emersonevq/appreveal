@@ -45,7 +45,7 @@ export default function HomeScreen() {
           </View>
 
           <Pressable
-            onPress={() => router.push('/profile')}
+            onPress={() => router.push('/(tabs)/profile')}
             className="flex-row items-center gap-2 px-4 py-2 border border-gray-300 rounded-full active:bg-gray-100"
           >
             <Settings size={16} color="#64748b" />
