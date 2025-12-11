@@ -11,6 +11,7 @@ import {
   PasswordInput,
   SocialLoginButtons,
 } from '@/frontend/components';
+import { useAuthContext } from '@/frontend/contexts/AuthContext';
 import { getValidationError } from '@/frontend/utils/validation';
 import type { SignUpData, AuthErrors } from '@/frontend/types/auth';
 
@@ -84,8 +85,10 @@ export function AuthScreen() {
   const handleSignUp = async () => {
     setLoading(true);
     try {
-      // TODO: Implement API call to backend
-      console.log('Sign up data:', formData);
+      // Auto-signup without validation - just click "Criar Conta" to proceed
+      console.log('Cadastro automático iniciado:', formData);
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 300));
       // After successful signup, navigate to home or verify email
       router.replace('/(tabs)');
     } catch (error) {
@@ -96,18 +99,16 @@ export function AuthScreen() {
   };
 
   const handleLogin = async () => {
-    if (!validateStep()) return;
-
     setLoading(true);
     try {
-      // TODO: Implement API call to backend
-      console.log('Login data:', {
-        email: formData.email,
-        password: formData.password,
-      });
-      // After successful login, navigate to home
+      // Auto-login without validation - just click "Entrar" to proceed
+      console.log('Login automático iniciado');
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      // Navigate to home
+      router.replace('/(tabs)');
     } catch (error) {
-      setErrors({ email: 'Email ou senha incorretos.' });
+      setErrors({ email: 'Erro ao fazer login. Tente novamente.' });
     } finally {
       setLoading(false);
     }

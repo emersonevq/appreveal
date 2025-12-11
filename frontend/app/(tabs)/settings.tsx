@@ -7,12 +7,22 @@ import {
   HelpCircle,
   Info,
   ChevronRight,
+  LogOut,
 } from 'lucide-react-native';
 import { useState } from 'react';
+import { useRouter } from 'expo-router';
+import { useAuthContext } from '@/frontend/contexts/AuthContext';
 
 export default function SettingsScreen() {
+  const router = useRouter();
+  const { logout } = useAuthContext();
   const [notifications, setNotifications] = useState(true);
   const [darkMode, setDarkMode] = useState(false);
+
+  const handleLogout = async () => {
+    await logout();
+    router.replace('/');
+  };
 
   return (
     <View className="flex-1 bg-gray-50">
@@ -114,6 +124,18 @@ export default function SettingsScreen() {
           <Text className="text-center text-gray-500 text-sm">
             Version 1.0.0
           </Text>
+        </View>
+
+        <View className="p-6">
+          <Pressable
+            onPress={handleLogout}
+            className="bg-red-500 active:bg-red-600 rounded-2xl p-4 flex-row items-center justify-center gap-2"
+          >
+            <LogOut size={20} color="#ffffff" />
+            <Text className="text-white font-semibold text-base">
+              Fazer Logout
+            </Text>
+          </Pressable>
         </View>
       </ScrollView>
     </View>

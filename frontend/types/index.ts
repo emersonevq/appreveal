@@ -28,3 +28,7 @@ export interface ApiError {
   code: string;
   details?: Record<string, unknown>;
 }
+
+export type { Post as PostItem } from './post';
+export type { ChatMessage, Conversation } from './chat';
+export type { UserProfile, Scrap, Testimonial } from './user';

@@ -1,59 +1,84 @@
-import { View, Text, ScrollView, Pressable } from 'react-native';
-import { Heart, MessageCircle, Share2 } from 'lucide-react-native';
+import { View, Text, ScrollView, Alert } from 'react-native';
+import { StatsBar } from '@/frontend/components/home/StatsBar';
+import { PostCard } from '@/frontend/components/home/PostCard';
+import { mockCurrentUser } from '@/frontend/mocks/users';
+import { mockPosts } from '@/frontend/mocks/posts';
 
 export default function HomeScreen() {
+  const handleFriendsPress = () => {
+    Alert.alert('Amigos', 'Abrir lista de amigos');
+  };
+
+  const handlePostsPress = () => {
+    Alert.alert('Meus Posts', 'Ver todos os seus posts');
+  };
+
+  const handleMessagesPress = () => {
+    Alert.alert('Mensagens', 'Navegar para mensagens');
+  };
+
+  const handleNotificationsPress = () => {
+    Alert.alert('Notificações', 'Você não tem notificações');
+  };
+
+  const handlePostPress = (postId: string) => {
+    Alert.alert('Post', `Abrindo post ${postId}`);
+  };
+
+  const handleLike = (postId: string) => {
+    Alert.alert('Curtir', `Curtiu post ${postId}`);
+  };
+
+  const handleComment = (postId: string) => {
+    Alert.alert('Comentar', `Comentando post ${postId}`);
+  };
+
+  const handleShare = (postId: string) => {
+    Alert.alert('Compartilhar', `Compartilhando post ${postId}`);
+  };
+
+  const handleUserPress = (userId: string) => {
+    Alert.alert('Perfil', `Abrir perfil do usuário ${userId}`);
+  };
+
   return (
-    <View className="flex-1 bg-white">
-      <View className="pt-12 px-6 pb-4 border-b border-gray-200">
-        <Text className="text-3xl font-bold text-gray-900">Home</Text>
+    <View className="flex-1 bg-gray-50">
+      {/* Header */}
+      <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200">
+        <Text className="text-3xl font-bold text-gray-900">Início</Text>
       </View>
 
-      <ScrollView className="flex-1">
-        <View className="p-6 space-y-4">
-          <View className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-            <View className="bg-gradient-to-br from-blue-500 to-blue-600 h-48 justify-center items-center">
-              <Text className="text-white text-2xl font-bold">
-                Welcome to Expo
-              </Text>
-            </View>
+      <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
+        <View className="px-6 py-6 gap-6">
+          {/* Stats Bar */}
+          <StatsBar
+            user={mockCurrentUser}
+            onFriendsPress={handleFriendsPress}
+            onPostsPress={handlePostsPress}
+            onMessagesPress={handleMessagesPress}
+            onNotificationsPress={handleNotificationsPress}
+          />
 
-            <View className="p-6">
-              <Text className="text-xl font-semibold text-gray-900 mb-2">
-                Getting Started
-              </Text>
-              <Text className="text-gray-600 leading-6">
-                This is a complete React Native app with Expo, TypeScript, and
-                Tailwind CSS (NativeWind).
-              </Text>
-
-              <View className="flex-row justify-around mt-6 pt-6 border-t border-gray-100">
-                <Pressable className="items-center active:opacity-70">
-                  <Heart size={24} color="#64748b" />
-                  <Text className="text-gray-600 text-sm mt-1">Like</Text>
-                </Pressable>
-
-                <Pressable className="items-center active:opacity-70">
-                  <MessageCircle size={24} color="#64748b" />
-                  <Text className="text-gray-600 text-sm mt-1">Comment</Text>
-                </Pressable>
-
-                <Pressable className="items-center active:opacity-70">
-                  <Share2 size={24} color="#64748b" />
-                  <Text className="text-gray-600 text-sm mt-1">Share</Text>
-                </Pressable>
-              </View>
-            </View>
-          </View>
-
-          <View className="bg-blue-50 rounded-2xl p-6 border border-blue-100">
-            <Text className="text-lg font-semibold text-blue-900 mb-2">
-              Built with
-            </Text>
-            <Text className="text-blue-700 leading-6">
-              • React Native{'\n'}• Expo Router{'\n'}• TypeScript{'\n'}•
-              NativeWind (Tailwind CSS){'\n'}• Lucide Icons
+          {/* Feed Title */}
+          <View>
+            <Text className="text-lg font-bold text-gray-900">Feed</Text>
+            <Text className="text-sm text-gray-600 mt-0.5">
+              Últimas postagens dos seus amigos
             </Text>
           </View>
+
+          {/* Posts */}
+          {mockPosts.map((post) => (
+            <PostCard
+              key={post.id}
+              post={post}
+              onPress={handlePostPress}
+              onLike={handleLike}
+              onComment={handleComment}
+              onShare={handleShare}
+              onUserPress={handleUserPress}
+            />
+          ))}
         </View>
       </ScrollView>
     </View>

@@ -1,0 +1,118 @@
+import type { Post } from '@/frontend/types/post';
+
+export const mockPosts: Post[] = [
+  {
+    id: 'post1',
+    userId: '2',
+    userFullName: 'Maria Santos',
+    userInitials: 'MS',
+    userAvatar:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80',
+    content:
+      'Que dia lindo! 🌞 Nada melhor que aproveitar o sol para trabalhar no parque.',
+    image:
+      'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe3e?w=500&q=80',
+    createdAt: '2 horas atrás',
+    likes: 45,
+    comments: 8,
+    shares: 3,
+    liked: false,
+  },
+  {
+    id: 'post2',
+    userId: '3',
+    userFullName: 'Pedro Oliveira',
+    userInitials: 'PO',
+    userAvatar:
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80',
+    content:
+      'Finalmente terminei aquele projeto que vinha desenvolvendo há meses!',
+    createdAt: '4 horas atrás',
+    likes: 32,
+    comments: 12,
+    shares: 5,
+    liked: true,
+  },
+  {
+    id: 'post3',
+    userId: '1',
+    userFullName: 'João Silva',
+    userInitials: 'JS',
+    userAvatar:
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
+    content: 'Alguém mais adora café quanto eu? ☕️',
+    image:
+      'https://images.unsplash.com/photo-1505252585461-04db1921b702?w=500&q=80',
+    createdAt: '1 dia atrás',
+    likes: 127,
+    comments: 34,
+    shares: 12,
+    liked: false,
+  },
+  {
+    id: 'post4',
+    userId: '4',
+    userFullName: 'Ana Costa',
+    userInitials: 'AC',
+    userAvatar:
+      'https://images.unsplash.com/photo-1517849845537-1d51a20414de?w=100&q=80',
+    content: 'Nova aventura começando amanhã! Destino desconhecido 🗺️✈️',
+    image:
+      'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&q=80',
+    createdAt: '2 dias atrás',
+    likes: 234,
+    comments: 45,
+    shares: 28,
+    liked: true,
+    taggedUsers: ['Maria Santos', 'Pedro Oliveira'],
+  },
+];
+
+export const mockUserPosts: Post[] = [
+  {
+    id: 'upost1',
+    userId: '1',
+    userFullName: 'João Silva',
+    userInitials: 'JS',
+    userAvatar:
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
+    content: 'Começando a aprender React Native! Que jornada interessante 🚀',
+    image:
+      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&q=80',
+    createdAt: '5 dias atrás',
+    likes: 67,
+    comments: 18,
+    shares: 8,
+    liked: false,
+  },
+  {
+    id: 'upost2',
+    userId: '1',
+    userFullName: 'João Silva',
+    userInitials: 'JS',
+    userAvatar:
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
+    content:
+      'Reunião com a equipe foi produtiva demais! Amando trabalhar com essas pessoas 💪',
+    createdAt: '1 semana atrás',
+    likes: 89,
+    comments: 23,
+    shares: 5,
+    liked: true,
+  },
+  {
+    id: 'upost3',
+    userId: '2',
+    userFullName: 'Maria Santos',
+    userInitials: 'MS',
+    userAvatar:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80',
+    content: 'João, que tal aquele projeto de design?',
+    createdAt: '1 semana atrás',
+    likes: 12,
+    comments: 4,
+    shares: 1,
+    liked: false,
+    taggedUsers: ['João Silva'],
+  },
+];
