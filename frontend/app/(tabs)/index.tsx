@@ -57,8 +57,8 @@ export default function HomeScreen() {
     },
     {
       id: 'requests',
-      label: 'Solicitações',
-      description: 'Pedidos de amizade',
+      label: 'Pedidos',
+      description: 'De amizade',
       icon: UserPlus,
       color: '#f59e0b',
       bgColor: 'bg-amber-100',
