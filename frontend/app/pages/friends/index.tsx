@@ -1,6 +1,6 @@
 import { View, Text, ScrollView, Pressable, Image } from 'react-native';
 import { useRouter } from 'expo-router';
-import { MessageCircle, Phone } from 'lucide-react-native';
+import { MessageCircle, Phone, ChevronLeft } from 'lucide-react-native';
 import { mockUsers } from '@/frontend/mocks/users';
 
 export default function FriendsScreen() {
@@ -17,11 +17,19 @@ export default function FriendsScreen() {
   return (
     <View className="flex-1 bg-gray-50">
       {/* Header */}
-      <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200">
-        <Text className="text-3xl font-bold text-gray-900">Amigos</Text>
-        <Text className="text-sm text-gray-600 mt-1">
-          {mockUsers.length} amigos
-        </Text>
+      <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200 flex-row items-center gap-3">
+        <Pressable
+          onPress={() => router.back()}
+          className="p-2 -ml-2"
+        >
+          <ChevronLeft size={24} color="#111827" />
+        </Pressable>
+        <View>
+          <Text className="text-2xl font-bold text-gray-900">Amigos</Text>
+          <Text className="text-xs text-gray-600 mt-0.5">
+            {mockUsers.length} amigos
+          </Text>
+        </View>
       </View>
 
       {/* Friends List */}
@@ -50,7 +58,7 @@ export default function FriendsScreen() {
                   <Text className="text-base font-bold text-gray-900">
                     {user.fullName}
                   </Text>
-                  <Text className="text-xs text-gray-600">
+                  <Text className="text-xs text-gray-600 line-clamp-1">
                     {user.bio || 'Sem bio'}
                   </Text>
                 </View>
