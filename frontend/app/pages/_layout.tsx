@@ -4,13 +4,6 @@ export default function PagesLayout() {
   return (
     <Stack screenOptions={{ headerShown: false, animationEnabled: true }}>
       <Stack.Screen
-        name="chat/index"
-        options={{
-          headerShown: false,
-          animationEnabled: true,
-        }}
-      />
-      <Stack.Screen
         name="chat/[id]"
         options={{
           headerShown: false,
