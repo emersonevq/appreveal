@@ -1,6 +1,6 @@
 import { View, Text, ScrollView, Pressable, Image } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Settings, MessageCircle, Users } from 'lucide-react-native';
+import { Settings, MessageCircle, Users, Bell, Inbox } from 'lucide-react-native';
 import { mockCurrentUser, mockUsers } from '@/frontend/mocks/users';
 import {
   friendsStatusList,
@@ -44,13 +44,28 @@ export default function HomeScreen() {
             </View>
           </View>
 
-          <Pressable
-            onPress={() => router.push('/profile')}
-            className="flex-row items-center gap-2 px-4 py-2 border border-gray-300 rounded-full active:bg-gray-100"
-          >
-            <Settings size={16} color="#64748b" />
-            <Text className="text-sm font-semibold text-gray-700">Perfil</Text>
-          </Pressable>
+          <View className="flex-row items-center gap-3">
+            {/* Notifications Icon */}
+            <Pressable className="relative p-2 active:opacity-70">
+              <Bell size={20} color="#64748b" />
+              <View className="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full border border-white" />
+            </Pressable>
+
+            {/* Requests Icon */}
+            <Pressable className="relative p-2 active:opacity-70">
+              <Inbox size={20} color="#64748b" />
+              <View className="absolute top-0 right-0 w-3 h-3 bg-orange-500 rounded-full border border-white" />
+            </Pressable>
+
+            {/* Profile Button */}
+            <Pressable
+              onPress={() => router.push('/profile')}
+              className="flex-row items-center gap-2 px-4 py-2 border border-gray-300 rounded-full active:bg-gray-100"
+            >
+              <Settings size={16} color="#64748b" />
+              <Text className="text-sm font-semibold text-gray-700">Perfil</Text>
+            </Pressable>
+          </View>
         </View>
 
         {/* Conversations and Friends Cards */}
