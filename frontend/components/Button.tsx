@@ -53,14 +53,18 @@ export function Button({
     <Pressable
       onPress={onPress}
       disabled={disabled || loading}
-      className={`${variantClasses[variant]} ${sizeClasses[size]} ${disabledClasses} ${widthClasses} rounded-xl items-center justify-center flex-row`}>
+      className={`${variantClasses[variant]} ${sizeClasses[size]} ${disabledClasses} ${widthClasses} rounded-xl items-center justify-center flex-row`}
+    >
       {loading ? (
         <ActivityIndicator
-          color={variant === 'outline' || variant === 'ghost' ? '#3b82f6' : '#ffffff'}
+          color={
+            variant === 'outline' || variant === 'ghost' ? '#3b82f6' : '#ffffff'
+          }
         />
       ) : (
         <Text
-          className={`${textColorClasses[variant]} ${textSizeClasses[size]} font-semibold`}>
+          className={`${textColorClasses[variant]} ${textSizeClasses[size]} font-semibold`}
+        >
           {children}
         </Text>
       )}

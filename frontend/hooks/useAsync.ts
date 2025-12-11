@@ -8,7 +8,7 @@ interface AsyncState<T> {
 
 export function useAsync<T>(
   asyncFunction: () => Promise<T>,
-  immediate: boolean = true
+  immediate: boolean = true,
 ) {
   const [state, setState] = useState<AsyncState<T>>({
     data: null,
