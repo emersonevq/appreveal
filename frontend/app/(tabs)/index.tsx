@@ -101,7 +101,7 @@ export default function HomeScreen() {
           <View className="flex-row gap-4">
             {/* Notifications Card */}
             <Pressable
-              onPress={() => router.push('/notifications')}
+              onPress={() => router.push('/pages/notifications')}
               className="flex-1 bg-white rounded-2xl p-4 border border-gray-100 active:bg-gray-50"
             >
               <View className="flex-row items-center gap-3 mb-2">
@@ -121,7 +121,7 @@ export default function HomeScreen() {
 
             {/* Requests Card */}
             <Pressable
-              onPress={() => router.push('/requests')}
+              onPress={() => router.push('/pages/friend-requests')}
               className="flex-1 bg-white rounded-2xl p-4 border border-gray-100 active:bg-gray-50"
             >
               <View className="flex-row items-center gap-3 mb-2">
