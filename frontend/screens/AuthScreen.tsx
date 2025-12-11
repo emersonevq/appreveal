@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { View, Text, Pressable } from 'react-native';
 import { ChevronLeft } from 'lucide-react-native';
+import { useRouter } from 'expo-router';
 import {
   Button,
   Input,
@@ -16,6 +17,7 @@ import type { SignUpData, AuthErrors } from '@/frontend/types/auth';
 type AuthMode = 'login' | 'signup';
 
 export function AuthScreen() {
+  const router = useRouter();
   const [mode, setMode] = useState<AuthMode>('login');
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [loading, setLoading] = useState(false);
@@ -82,6 +84,7 @@ export function AuthScreen() {
       // TODO: Implement API call to backend
       console.log('Sign up data:', formData);
       // After successful signup, navigate to home or verify email
+      router.replace('/(tabs)');
     } catch (error) {
       setErrors({ email: 'Erro ao criar conta. Tente novamente.' });
     } finally {
