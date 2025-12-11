@@ -2,7 +2,10 @@ import { View, Text, ScrollView, Pressable, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Settings, MessageCircle, Users } from 'lucide-react-native';
 import { mockCurrentUser, mockUsers } from '@/frontend/mocks/users';
-import { friendsStatusList, getStatusColor } from '@/frontend/mocks/friends-status';
+import {
+  friendsStatusList,
+  getStatusColor,
+} from '@/frontend/mocks/friends-status';
 import { mockConversations } from '@/frontend/mocks/chats';
 import { mockScraps, mockTestimonials } from '@/frontend/mocks/scraps';
 
@@ -10,7 +13,7 @@ export default function HomeScreen() {
   const router = useRouter();
 
   const onlineCount = friendsStatusList.filter(
-    (f) => f.status === 'online' || f.status === 'busy'
+    (f) => f.status === 'online' || f.status === 'busy',
   ).length;
 
   const firstName = mockCurrentUser.fullName.split(' ')[0];
@@ -37,9 +40,7 @@ export default function HomeScreen() {
               <Text className="text-lg font-bold text-gray-900">
                 Olá, {firstName}!
               </Text>
-              <Text className="text-xs text-gray-500">
-                📍 Vivendo a vida!
-              </Text>
+              <Text className="text-xs text-gray-500">📍 Vivendo a vida!</Text>
             </View>
           </View>
 
@@ -127,7 +128,9 @@ export default function HomeScreen() {
                         />
                       </View>
                       <View
-                        style={{ backgroundColor: getStatusColor(friend.status) }}
+                        style={{
+                          backgroundColor: getStatusColor(friend.status),
+                        }}
                         className="w-3 h-3 rounded-full absolute bottom-0 right-0 border-2 border-white"
                       />
                     </View>

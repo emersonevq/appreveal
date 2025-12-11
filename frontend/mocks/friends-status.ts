@@ -19,7 +19,8 @@ export const friendsStatusList: FriendStatus[] = [
     userId: '2',
     name: 'Maria Santos',
     initials: 'MS',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80',
+    avatar:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80',
     status: 'online',
     statusLabel: 'Disponível',
     currentlyPlaying: {
@@ -32,7 +33,8 @@ export const friendsStatusList: FriendStatus[] = [
     userId: '3',
     name: 'Pedro Oliveira',
     initials: 'PO',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80',
+    avatar:
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80',
     status: 'offline',
     statusLabel: 'Offline',
   },
@@ -40,7 +42,8 @@ export const friendsStatusList: FriendStatus[] = [
     userId: '4',
     name: 'Ana Costa',
     initials: 'AC',
-    avatar: 'https://images.unsplash.com/photo-1517849845537-1d51a20414de?w=100&q=80',
+    avatar:
+      'https://images.unsplash.com/photo-1517849845537-1d51a20414de?w=100&q=80',
     status: 'busy',
     statusLabel: 'Ocupado',
     currentlyPlaying: {
@@ -53,7 +56,8 @@ export const friendsStatusList: FriendStatus[] = [
     userId: '5',
     name: 'Carlos Silva',
     initials: 'CS',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
+    avatar:
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
     status: 'away',
     statusLabel: 'Ausente',
   },

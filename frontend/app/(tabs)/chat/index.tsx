@@ -1,7 +1,10 @@
 import { View, Text, ScrollView, Pressable, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { mockConversations } from '@/frontend/mocks/chats';
-import { friendsStatusList, getStatusColor } from '@/frontend/mocks/friends-status';
+import {
+  friendsStatusList,
+  getStatusColor,
+} from '@/frontend/mocks/friends-status';
 
 export default function ChatListScreen() {
   const router = useRouter();

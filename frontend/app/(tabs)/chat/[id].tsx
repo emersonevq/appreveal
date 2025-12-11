@@ -85,10 +85,7 @@ export default function ChatDetailScreen() {
       {/* Header */}
       <View className="pt-4 px-6 pb-4 bg-white border-b border-gray-200 flex-row items-center justify-between">
         <View className="flex-row items-center gap-2 flex-1">
-          <Pressable
-            onPress={() => router.back()}
-            className="p-2 -ml-2"
-          >
+          <Pressable onPress={() => router.back()} className="p-2 -ml-2">
             <ChevronLeft size={24} color="#111827" />
           </Pressable>
           <View className="flex-1">

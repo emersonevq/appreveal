@@ -8,7 +8,7 @@ type TabType = 'posts' | 'testimonials';
 
 export default function ProfileScreen() {
   const [activeTab, setActiveTab] = useState<TabType>('posts');
-  
+
   const userPosts = mockUserPosts.filter((post) => post.userId === '1');
   const taggedPosts = mockUserPosts.filter((post) =>
     post.taggedUsers?.includes('João Silva'),
@@ -52,7 +52,7 @@ export default function ProfileScreen() {
                 📍 {mockCurrentUser.location}
               </Text>
             )}
-            
+
             {mockCurrentUser.bio && (
               <Text className="text-sm text-gray-700 text-center leading-5">
                 {mockCurrentUser.bio}
@@ -65,16 +65,12 @@ export default function ProfileScreen() {
             <Pressable
               onPress={() => setActiveTab('posts')}
               className={`flex-1 py-4 items-center border-b-2 ${
-                activeTab === 'posts'
-                  ? 'border-gray-900'
-                  : 'border-transparent'
+                activeTab === 'posts' ? 'border-gray-900' : 'border-transparent'
               }`}
             >
               <Text
                 className={`font-semibold ${
-                  activeTab === 'posts'
-                    ? 'text-gray-900'
-                    : 'text-gray-500'
+                  activeTab === 'posts' ? 'text-gray-900' : 'text-gray-500'
                 }`}
               >
                 Posts
