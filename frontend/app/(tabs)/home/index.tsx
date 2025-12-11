@@ -58,7 +58,7 @@ export default function HomeScreen() {
           <View className="flex-row gap-4">
             {/* Conversations Card */}
             <Pressable
-              onPress={() => router.push('/chat')}
+              onPress={() => router.push('/(tabs)/chat')}
               className="flex-1 bg-white rounded-2xl p-4 border border-gray-100 active:bg-gray-50"
             >
               <View className="flex-row items-center gap-3 mb-2">
