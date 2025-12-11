@@ -32,7 +32,7 @@ export default function HomeScreen() {
       icon: MessageCircle,
       color: '#16a34a',
       bgColor: 'bg-green-100',
-      route: '/chat',
+      route: '/pages/chat',
       count: 5,
     },
     {
