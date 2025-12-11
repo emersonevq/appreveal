@@ -61,18 +61,14 @@ export default function FriendRequestsScreen() {
     <View className="flex-1 bg-gray-50">
       {/* Header */}
       <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200 flex-row items-center gap-3">
-        <Pressable
-          onPress={() => router.back()}
-          className="p-2 -ml-2"
-        >
+        <Pressable onPress={() => router.back()} className="p-2 -ml-2">
           <ChevronLeft size={24} color="#111827" />
         </Pressable>
         <View>
-          <Text className="text-2xl font-bold text-gray-900">
-            Solicitações
-          </Text>
+          <Text className="text-2xl font-bold text-gray-900">Solicitações</Text>
           <Text className="text-xs text-gray-600 mt-0.5">
-            {requests.length} pedido{requests.length !== 1 ? 's' : ''} de amizade
+            {requests.length} pedido{requests.length !== 1 ? 's' : ''} de
+            amizade
           </Text>
         </View>
       </View>
@@ -107,7 +103,10 @@ export default function FriendRequestsScreen() {
                         {request.fullName}
                       </Text>
                       <Text className="text-xs text-gray-600">
-                        {request.mutualFriends} {request.mutualFriends === 1 ? 'amigo em comum' : 'amigos em comum'}
+                        {request.mutualFriends}{' '}
+                        {request.mutualFriends === 1
+                          ? 'amigo em comum'
+                          : 'amigos em comum'}
                       </Text>
                     </View>
                   </View>

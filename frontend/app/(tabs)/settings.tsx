@@ -39,9 +39,7 @@ export default function SettingsScreen() {
           <View className="flex-row items-center justify-between px-6 py-4 border-b border-gray-100">
             <View className="flex-row items-center flex-1">
               <Bell size={20} color="#64748b" />
-              <Text className="text-gray-900 ml-3 text-base">
-                Notificações
-              </Text>
+              <Text className="text-gray-900 ml-3 text-base">Notificações</Text>
             </View>
             <Switch
               value={notifications}
@@ -50,7 +48,6 @@ export default function SettingsScreen() {
               thumbColor={notifications ? '#0ea5e9' : '#f3f4f6'}
             />
           </View>
-
 
           <Pressable className="flex-row items-center justify-between px-6 py-4 active:bg-gray-50">
             <View className="flex-row items-center flex-1">
@@ -92,7 +89,9 @@ export default function SettingsScreen() {
           <Pressable className="flex-row items-center justify-between px-6 py-4 border-b border-gray-100 active:bg-gray-50">
             <View className="flex-row items-center flex-1">
               <HelpCircle size={20} color="#64748b" />
-              <Text className="text-gray-900 ml-3 text-base">Central de Ajuda</Text>
+              <Text className="text-gray-900 ml-3 text-base">
+                Central de Ajuda
+              </Text>
             </View>
             <ChevronRight size={20} color="#94a3b8" />
           </Pressable>

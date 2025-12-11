@@ -18,10 +18,7 @@ export default function FriendsScreen() {
     <View className="flex-1 bg-gray-50">
       {/* Header */}
       <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200 flex-row items-center gap-3">
-        <Pressable
-          onPress={() => router.back()}
-          className="p-2 -ml-2"
-        >
+        <Pressable onPress={() => router.back()} className="p-2 -ml-2">
           <ChevronLeft size={24} color="#111827" />
         </Pressable>
         <View>

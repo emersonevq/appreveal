@@ -1,6 +1,13 @@
 import { View, Text, ScrollView, Pressable } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Heart, MessageCircle, UserPlus, Share2, Trash2, ChevronLeft } from 'lucide-react-native';
+import {
+  Heart,
+  MessageCircle,
+  UserPlus,
+  Share2,
+  Trash2,
+  ChevronLeft,
+} from 'lucide-react-native';
 
 interface Notification {
   id: string;
@@ -92,10 +99,7 @@ export default function NotificationsScreen() {
     <View className="flex-1 bg-gray-50">
       {/* Header */}
       <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200 flex-row items-center gap-3">
-        <Pressable
-          onPress={() => router.back()}
-          className="p-2 -ml-2"
-        >
+        <Pressable onPress={() => router.back()} className="p-2 -ml-2">
           <ChevronLeft size={24} color="#111827" />
         </Pressable>
         <View>
