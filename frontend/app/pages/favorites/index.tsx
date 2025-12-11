@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, ScrollView, Pressable, Image } from 'react-native';
-import { Heart, Trash2 } from 'lucide-react-native';
+import { Heart, Trash2, ChevronLeft } from 'lucide-react-native';
+import { useRouter } from 'expo-router';
 
 interface SavedPost {
   id: string;
@@ -57,6 +58,7 @@ const mockSavedPosts: SavedPost[] = [
 ];
 
 export default function FavoritesScreen() {
+  const router = useRouter();
   const [savedPosts, setSavedPosts] = React.useState(mockSavedPosts);
 
   const handleUnsave = (postId: string) => {
@@ -66,11 +68,19 @@ export default function FavoritesScreen() {
   return (
     <View className="flex-1 bg-gray-50">
       {/* Header */}
-      <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200">
-        <Text className="text-3xl font-bold text-gray-900">Favoritos</Text>
-        <Text className="text-sm text-gray-600 mt-1">
-          {savedPosts.length} post{savedPosts.length !== 1 ? 's' : ''} salvos
-        </Text>
+      <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200 flex-row items-center justify-between">
+        <Pressable
+          onPress={() => router.back()}
+          className="flex-row items-center gap-2 -ml-2 p-2"
+        >
+          <ChevronLeft size={24} color="#111827" />
+        </Pressable>
+        <View className="flex-1">
+          <Text className="text-2xl font-bold text-gray-900">Favoritos</Text>
+          <Text className="text-xs text-gray-600 mt-1">
+            {savedPosts.length} post{savedPosts.length !== 1 ? 's' : ''} salvos
+          </Text>
+        </View>
       </View>
 
       {/* Saved Posts */}
@@ -152,8 +162,14 @@ export default function FavoritesScreen() {
         <View className="flex-1 items-center justify-center">
           <Heart size={48} color="#d1d5db" />
           <Text className="text-gray-600 text-center mt-4">
-            Nenhum post salvo no momento
+            Nenhum post salvo
           </Text>
+          <Pressable
+            onPress={() => router.back()}
+            className="mt-4 bg-blue-500 rounded-lg px-6 py-2"
+          >
+            <Text className="text-white font-semibold">Voltar</Text>
+          </Pressable>
         </View>
       )}
     </View>
