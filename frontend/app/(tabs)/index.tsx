@@ -44,28 +44,13 @@ export default function HomeScreen() {
             </View>
           </View>
 
-          <View className="flex-row items-center gap-3">
-            {/* Notifications Icon */}
-            <Pressable className="relative p-2 active:opacity-70">
-              <Bell size={20} color="#64748b" />
-              <View className="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full border border-white" />
-            </Pressable>
-
-            {/* Requests Icon */}
-            <Pressable className="relative p-2 active:opacity-70">
-              <Inbox size={20} color="#64748b" />
-              <View className="absolute top-0 right-0 w-3 h-3 bg-orange-500 rounded-full border border-white" />
-            </Pressable>
-
-            {/* Profile Button */}
-            <Pressable
-              onPress={() => router.push('/profile')}
-              className="flex-row items-center gap-2 px-4 py-2 border border-gray-300 rounded-full active:bg-gray-100"
-            >
-              <Settings size={16} color="#64748b" />
-              <Text className="text-sm font-semibold text-gray-700">Perfil</Text>
-            </Pressable>
-          </View>
+          <Pressable
+            onPress={() => router.push('/profile')}
+            className="flex-row items-center gap-2 px-4 py-2 border border-gray-300 rounded-full active:bg-gray-100"
+          >
+            <Settings size={16} color="#64748b" />
+            <Text className="text-sm font-semibold text-gray-700">Perfil</Text>
+          </Pressable>
         </View>
 
         {/* Conversations and Friends Cards */}
@@ -106,6 +91,49 @@ export default function HomeScreen() {
                   </Text>
                   <Text className="text-xs text-gray-600">
                     {mockUsers.length} conexões
+                  </Text>
+                </View>
+              </View>
+            </Pressable>
+          </View>
+
+          {/* Notifications and Requests Cards */}
+          <View className="flex-row gap-4">
+            {/* Notifications Card */}
+            <Pressable
+              onPress={() => router.push('/notifications')}
+              className="flex-1 bg-white rounded-2xl p-4 border border-gray-100 active:bg-gray-50"
+            >
+              <View className="flex-row items-center gap-3 mb-2">
+                <View className="w-10 h-10 bg-red-100 rounded-full items-center justify-center">
+                  <Bell size={20} color="#dc2626" />
+                </View>
+                <View className="flex-1">
+                  <Text className="font-bold text-gray-900 text-sm">
+                    Notificações
+                  </Text>
+                  <Text className="text-xs text-gray-600">
+                    2 novas
+                  </Text>
+                </View>
+              </View>
+            </Pressable>
+
+            {/* Requests Card */}
+            <Pressable
+              onPress={() => router.push('/requests')}
+              className="flex-1 bg-white rounded-2xl p-4 border border-gray-100 active:bg-gray-50"
+            >
+              <View className="flex-row items-center gap-3 mb-2">
+                <View className="w-10 h-10 bg-amber-100 rounded-full items-center justify-center">
+                  <Inbox size={20} color="#d97706" />
+                </View>
+                <View className="flex-1">
+                  <Text className="font-bold text-gray-900 text-sm">
+                    Solicitações
+                  </Text>
+                  <Text className="text-xs text-gray-600">
+                    3 pendentes
                   </Text>
                 </View>
               </View>
