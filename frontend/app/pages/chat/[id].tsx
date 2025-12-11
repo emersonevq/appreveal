@@ -24,6 +24,12 @@ export default function ChatDetailScreen() {
     return (
       <View className="flex-1 bg-gray-50 items-center justify-center">
         <Text className="text-gray-600">Conversa não encontrada</Text>
+        <Pressable
+          onPress={() => router.back()}
+          className="mt-4 bg-blue-500 rounded-lg px-6 py-2"
+        >
+          <Text className="text-white font-semibold">Voltar</Text>
+        </Pressable>
       </View>
     );
   }
