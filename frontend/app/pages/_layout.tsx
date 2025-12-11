@@ -11,6 +11,13 @@ export default function PagesLayout() {
         }}
       />
       <Stack.Screen
+        name="chat/index"
+        options={{
+          headerShown: false,
+          animationEnabled: true,
+        }}
+      />
+      <Stack.Screen
         name="friends/index"
         options={{
           headerShown: false,
