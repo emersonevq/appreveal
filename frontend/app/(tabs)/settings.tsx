@@ -51,18 +51,6 @@ export default function SettingsScreen() {
             />
           </View>
 
-          <View className="flex-row items-center justify-between px-6 py-4 border-b border-gray-100">
-            <View className="flex-row items-center flex-1">
-              <Moon size={20} color="#64748b" />
-              <Text className="text-gray-900 ml-3 text-base">Dark Mode</Text>
-            </View>
-            <Switch
-              value={darkMode}
-              onValueChange={setDarkMode}
-              trackColor={{ false: '#d1d5db', true: '#93c5fd' }}
-              thumbColor={darkMode ? '#0ea5e9' : '#f3f4f6'}
-            />
-          </View>
 
           <Pressable className="flex-row items-center justify-between px-6 py-4 active:bg-gray-50">
             <View className="flex-row items-center flex-1">
