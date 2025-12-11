@@ -24,7 +24,10 @@ export function Card({
 
   if (onPress) {
     return (
-      <Pressable onPress={onPress} className={`${baseClasses} active:opacity-80`}>
+      <Pressable
+        onPress={onPress}
+        className={`${baseClasses} active:opacity-80`}
+      >
         {children}
       </Pressable>
     );

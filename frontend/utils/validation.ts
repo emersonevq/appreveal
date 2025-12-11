@@ -24,7 +24,7 @@ export const validateFullName = (fullName: string): boolean => {
 
 export const getValidationError = (
   field: string,
-  value: string
+  value: string,
 ): string | undefined => {
   switch (field) {
     case 'email':

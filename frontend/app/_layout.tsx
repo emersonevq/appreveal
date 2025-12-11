@@ -10,26 +10,26 @@ export default function RootLayout() {
   return (
     <>
       <Stack screenOptions={{ headerShown: false, animationEnabled: true }}>
-        <Stack.Screen 
-          name="index" 
-          options={{ 
+        <Stack.Screen
+          name="index"
+          options={{
             headerShown: false,
-            animationEnabled: false 
-          }} 
+            animationEnabled: false,
+          }}
         />
-        <Stack.Screen 
-          name="auth" 
-          options={{ 
+        <Stack.Screen
+          name="auth"
+          options={{
             headerShown: false,
-            animationEnabled: true
-          }} 
+            animationEnabled: true,
+          }}
         />
-        <Stack.Screen 
-          name="(tabs)" 
-          options={{ 
+        <Stack.Screen
+          name="(tabs)"
+          options={{
             headerShown: false,
-            animationEnabled: true 
-          }} 
+            animationEnabled: true,
+          }}
         />
         <Stack.Screen name="+not-found" />
       </Stack>

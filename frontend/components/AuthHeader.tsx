@@ -15,7 +15,9 @@ export function AuthHeader({ title, subtitle }: AuthHeaderProps) {
       <View className="items-center gap-2">
         <Text className="text-3xl font-bold text-gray-900">{title}</Text>
         {subtitle && (
-          <Text className="text-base text-gray-600 text-center">{subtitle}</Text>
+          <Text className="text-base text-gray-600 text-center">
+            {subtitle}
+          </Text>
         )}
       </View>
     </View>

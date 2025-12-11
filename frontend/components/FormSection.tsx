@@ -15,7 +15,8 @@ export function FormSection({
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{ flexGrow: 1 }}>
+      contentContainerStyle={{ flexGrow: 1 }}
+    >
       <View className="flex-1 gap-6">
         {title && (
           <View className="gap-2">

@@ -22,7 +22,8 @@ export function PasswordInput({
       <View
         className={`flex-row items-center bg-gray-50 rounded-xl px-4 py-3 border ${
           error ? 'border-red-300' : 'border-gray-200'
-        }`}>
+        }`}
+      >
         <TextInput
           className="flex-1 text-base text-gray-900"
           placeholderTextColor="#94a3b8"
@@ -31,7 +32,10 @@ export function PasswordInput({
           value={value}
           onChangeText={onChangeText}
         />
-        <Pressable onPress={() => setShowPassword(!showPassword)} className="p-2">
+        <Pressable
+          onPress={() => setShowPassword(!showPassword)}
+          className="p-2"
+        >
           {showPassword ? (
             <EyeOff size={20} color="#64748b" />
           ) : (

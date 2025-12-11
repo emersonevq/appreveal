@@ -5,6 +5,7 @@ Exemplos práticos de como usar e estender o módulo frontend.
 ## ✅ Usando a Tela de Auth
 
 ### Integrado no App
+
 ```tsx
 // app/_layout.tsx
 import { AuthScreen } from '@/frontend';
@@ -23,13 +24,14 @@ export default function RootLayout() {
 ## 🎨 Usando Componentes Individualmente
 
 ### AuthHeader
+
 ```tsx
 import { AuthHeader } from '@/frontend';
 
 export function MyCustomScreen() {
   return (
     <View>
-      <AuthHeader 
+      <AuthHeader
         title="Configurações de Perfil"
         subtitle="Atualize suas informações"
       />
@@ -40,6 +42,7 @@ export function MyCustomScreen() {
 ```
 
 ### StepIndicator em Outro Contexto
+
 ```tsx
 import { StepIndicator, FormSection } from '@/frontend';
 
@@ -58,6 +61,7 @@ export function OnboardingScreen() {
 ```
 
 ### PasswordInput em Formulário
+
 ```tsx
 import { PasswordInput } from '@/frontend';
 
@@ -88,6 +92,7 @@ function ChangePasswordForm() {
 ## 🔐 Usando Validações
 
 ### Validar Email
+
 ```tsx
 import { getValidationError } from '@/frontend';
 
@@ -96,13 +101,14 @@ const error = getValidationError('email', 'invalido');
 ```
 
 ### Validar Todas as Etapas
+
 ```tsx
-import { 
+import {
   validateEmail,
   validatePassword,
   validateUsername,
   validateFullName,
-  validatePhone 
+  validatePhone,
 } from '@/frontend';
 
 function validateFormData(data) {
@@ -131,6 +137,7 @@ function validateFormData(data) {
 ## 🪝 Usando useAuth Hook
 
 ### No Settings Screen
+
 ```tsx
 import { useAuth } from '@/frontend';
 import { Button } from '@/components/Button';
@@ -149,6 +156,7 @@ export default function SettingsScreen() {
 ```
 
 ### Acessar Dados do Usuário
+
 ```tsx
 import { useAuth } from '@/frontend';
 
@@ -171,6 +179,7 @@ export function ProfileHeader() {
 ## 📦 Criando Novos Componentes Customizados
 
 ### Botão com Ícone
+
 ```tsx
 // frontend/components/IconButton.tsx
 import { Pressable, View } from 'react-native';
@@ -184,9 +193,10 @@ interface IconButtonProps {
 
 export function IconButton({ icon, onPress, label }: IconButtonProps) {
   return (
-    <Pressable 
+    <Pressable
       onPress={onPress}
-      className="p-3 rounded-full active:bg-gray-100">
+      className="p-3 rounded-full active:bg-gray-100"
+    >
       {icon}
     </Pressable>
   );
@@ -196,13 +206,14 @@ export function IconButton({ icon, onPress, label }: IconButtonProps) {
 import { IconButton } from '@/frontend/components/IconButton';
 import { Heart } from 'lucide-react-native';
 
-<IconButton 
+<IconButton
   icon={<Heart size={24} color="red" />}
   onPress={() => console.log('Liked!')}
-/>
+/>;
 ```
 
 ### Card de Conversa
+
 ```tsx
 // frontend/components/ChatCard.tsx
 import { View, Text, Pressable, Image } from 'react-native';
@@ -250,6 +261,7 @@ export function ChatCard({
 ## 🔄 Extendendo Validações
 
 ### Adicionar Validação Customizada
+
 ```tsx
 // frontend/utils/validation.ts
 export const validateCPF = (cpf: string): boolean => {
@@ -268,6 +280,7 @@ export const getValidationError = (field: string, value: string) => {
 ```
 
 ### Usar em Formulário
+
 ```tsx
 import { getValidationError } from '@/frontend';
 
@@ -288,7 +301,7 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
 export async function signupUser(
   email: string,
   password: string,
-  profile: { fullName: string; username: string }
+  profile: { fullName: string; username: string },
 ) {
   // Criar usuário
   const { data: authData, error: authError } = await supabase.auth.signUp({
@@ -312,6 +325,7 @@ export async function signupUser(
 ```
 
 ### Usar no Hook
+
 ```tsx
 // frontend/hooks/useAuth.ts
 import { signupUser } from '@/frontend/modules/api/supabase';
@@ -337,6 +351,7 @@ export function useAuth() {
 ## 🎯 Boas Práticas
 
 ### ✅ Faça
+
 ```tsx
 // Componentes reutilizáveis e bem tipados
 interface CardProps {
@@ -350,6 +365,7 @@ export function Card({ title, children }: CardProps) {
 ```
 
 ### ❌ Não Faça
+
 ```tsx
 // Componentes muito genéricos ou sem tipos
 export function Card(props) {
@@ -358,12 +374,14 @@ export function Card(props) {
 ```
 
 ### ✅ Faça
+
 ```tsx
 // Separar lógica de validação em utils
 const error = getValidationError('email', email);
 ```
 
 ### ❌ Não Faça
+
 ```tsx
 // Colocar validação direto no componente
 if (!email.includes('@')) {
