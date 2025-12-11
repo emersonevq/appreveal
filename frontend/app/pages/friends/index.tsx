@@ -11,7 +11,7 @@ export default function FriendsScreen() {
   };
 
   const handleMessage = (userId: string) => {
-    router.push(`/pages/chat`);
+    router.push(`/chat`);
   };
 
   return (

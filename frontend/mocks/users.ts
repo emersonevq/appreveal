@@ -15,7 +15,7 @@ export const mockCurrentUser: UserProfile = {
   unreadMessages: 5,
 };
 
-export const mockOtherUsers: UserProfile[] = [
+export const mockUsers: UserProfile[] = [
   {
     id: '2',
     fullName: 'Maria Santos',

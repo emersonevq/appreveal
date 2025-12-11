@@ -1,8 +1,7 @@
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, Pressable } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ChevronLeft } from 'lucide-react-native';
-import { Pressable } from 'react-native';
 import { ChatMessage } from '@/frontend/components/chat/ChatMessage';
 import { ChatInput } from '@/frontend/components/chat/ChatInput';
 import { mockConversations } from '@/frontend/mocks/chats';
@@ -84,19 +83,18 @@ export default function ChatDetailScreen() {
   return (
     <View className="flex-1 bg-gray-50">
       {/* Header */}
-      <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200 flex-row items-center justify-between">
-        <Pressable
-          onPress={() => router.back()}
-          className="flex-row items-center gap-2"
-        >
-          <ChevronLeft size={24} color="#111827" />
-          <View>
+      <View className="pt-4 px-6 pb-4 bg-white border-b border-gray-200 flex-row items-center justify-between">
+        <View className="flex-row items-center gap-2 flex-1">
+          <Pressable onPress={() => router.back()} className="p-2 -ml-2">
+            <ChevronLeft size={24} color="#111827" />
+          </Pressable>
+          <View className="flex-1">
             <Text className="text-xl font-bold text-gray-900">
               {conversation.userFullName}
             </Text>
             <Text className="text-xs text-gray-600">Online</Text>
           </View>
-        </Pressable>
+        </View>
       </View>
 
       {/* Messages */}
