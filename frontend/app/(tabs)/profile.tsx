@@ -46,14 +46,14 @@ export default function ProfileScreen() {
   };
 
   return (
-    <View className="flex-1 bg-gray-50">
+    <View className="flex-1 bg-gray-50 w-full">
       {/* Header */}
-      <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200">
+      <View className="pt-12 px-6 pb-4 bg-white border-b border-gray-200 w-full">
         <Text className="text-3xl font-bold text-gray-900">Meu Perfil</Text>
       </View>
 
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
-        <View className="px-6 py-6 gap-6">
+        <View className="w-full px-6 py-6 gap-6">
           {/* Profile Card */}
           <ProfileCard
             user={mockCurrentUser}
