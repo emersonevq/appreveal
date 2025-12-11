@@ -1,3 +1,4 @@
+import React from 'react';
 import { View, Text, ScrollView, Pressable, Image } from 'react-native';
 import { Heart, Trash2 } from 'lucide-react-native';
 
