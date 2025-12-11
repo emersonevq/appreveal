@@ -11,7 +11,7 @@ export default function ChatListScreen() {
 
   const handleConversationPress = (conversationId: string) => {
     router.push({
-      pathname: '/chat/[id]',
+      pathname: '/pages/chat/[id]',
       params: { id: conversationId },
     });
   };
