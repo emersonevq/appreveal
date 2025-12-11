@@ -9,10 +9,14 @@ export default function RootRedirect() {
   const { isAuthenticated, isLoading } = useAuthContext();
 
   useEffect(() => {
-    if (!isLoading && isAuthenticated) {
-      router.replace('/(tabs)');
+    if (!isLoading) {
+      if (isAuthenticated) {
+        router.replace('/(tabs)/home');
+      } else {
+        router.replace('/auth');
+      }
     }
-  }, [isAuthenticated, isLoading]);
+  }, [isAuthenticated, isLoading, router]);
 
   // Show loading while checking auth
   if (isLoading) {
