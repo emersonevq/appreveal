@@ -1,26 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'expo-router';
 import { View, ActivityIndicator } from 'react-native';
 import { AuthScreen } from '@/frontend/screens/AuthScreen';
+import { useAuthContext } from '@/frontend/contexts/AuthContext';
 
 export default function RootRedirect() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { isAuthenticated, isLoading } = useAuthContext();
 
   useEffect(() => {
-    // TODO: Check authentication state from async storage or token
-    // For now, default to not authenticated
-    setTimeout(() => {
-      const authenticated = false; // Change this based on token check
-      setIsAuthenticated(authenticated);
-      setIsLoading(false);
-
-      if (authenticated) {
-        router.replace('/(tabs)');
-      }
-    }, 100);
-  }, []);
+    if (!isLoading && isAuthenticated) {
+      router.replace('/(tabs)');
+    }
+  }, [isAuthenticated, isLoading]);
 
   // Show loading while checking auth
   if (isLoading) {
