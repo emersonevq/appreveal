@@ -159,5 +159,3 @@ export default function FavoritesScreen() {
     </View>
   );
 }
-
-import React from 'react';
