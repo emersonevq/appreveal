@@ -17,21 +17,21 @@ frontend/
 ## 🎨 Componentes Disponíveis
 
 ### AuthHeader
+
 ```tsx
 import { AuthHeader } from '@/frontend';
 
-<AuthHeader 
-  title="Bem-vindo"
-  subtitle="Crie sua conta para continuar"
-/>
+<AuthHeader title="Bem-vindo" subtitle="Crie sua conta para continuar" />;
 ```
 
 ### StepIndicator
+
 ```tsx
 <StepIndicator currentStep={1} totalSteps={3} />
 ```
 
 ### PasswordInput
+
 ```tsx
 <PasswordInput
   value={password}
@@ -42,6 +42,7 @@ import { AuthHeader } from '@/frontend';
 ```
 
 ### SocialLoginButtons
+
 ```tsx
 <SocialLoginButtons
   onGooglePress={() => handleGoogleLogin()}
@@ -54,13 +55,13 @@ import { AuthHeader } from '@/frontend';
 Funções prontas para validar dados:
 
 ```tsx
-import { 
+import {
   validateEmail,
   validatePassword,
   validateUsername,
   validatePhone,
   validateFullName,
-  getValidationError
+  getValidationError,
 } from '@/frontend';
 
 getValidationError('email', 'test@example.com'); // undefined (válido)
@@ -70,6 +71,7 @@ getValidationError('password', '123'); // "Mínimo 8 caracteres"
 ## 🪝 Hooks
 
 ### useAuth
+
 ```tsx
 import { useAuth } from '@/frontend';
 

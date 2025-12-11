@@ -7,7 +7,11 @@ interface BadgeProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
-export function Badge({ children, variant = 'primary', size = 'md' }: BadgeProps) {
+export function Badge({
+  children,
+  variant = 'primary',
+  size = 'md',
+}: BadgeProps) {
   const variantClasses = {
     primary: 'bg-blue-100 border-blue-200',
     success: 'bg-green-100 border-green-200',
@@ -38,9 +42,11 @@ export function Badge({ children, variant = 'primary', size = 'md' }: BadgeProps
 
   return (
     <View
-      className={`${variantClasses[variant]} ${sizeClasses[size]} rounded-full border self-start`}>
+      className={`${variantClasses[variant]} ${sizeClasses[size]} rounded-full border self-start`}
+    >
       <Text
-        className={`${textColorClasses[variant]} ${textSizeClasses[size]} font-semibold`}>
+        className={`${textColorClasses[variant]} ${textSizeClasses[size]} font-semibold`}
+      >
         {children}
       </Text>
     </View>

@@ -33,7 +33,8 @@ export function Avatar({ source, initials, size = 'md' }: AvatarProps) {
 
   return (
     <View
-      className={`${sizeClasses[size]} rounded-full bg-blue-500 items-center justify-center`}>
+      className={`${sizeClasses[size]} rounded-full bg-blue-500 items-center justify-center`}
+    >
       <Text className={`${textSizeClasses[size]} font-semibold text-white`}>
         {initials?.slice(0, 2).toUpperCase() || '?'}
       </Text>

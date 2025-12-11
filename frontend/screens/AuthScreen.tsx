@@ -49,7 +49,10 @@ export function AuthScreen() {
       const emailError = getValidationError('email', formData.email || '');
       if (emailError) newErrors.email = emailError;
     } else if (step === 2) {
-      const passwordError = getValidationError('password', formData.password || '');
+      const passwordError = getValidationError(
+        'password',
+        formData.password || '',
+      );
       if (passwordError) newErrors.password = passwordError;
       if (formData.password !== formData.confirmPassword) {
         newErrors.confirmPassword = 'Senhas não coincidem';
@@ -59,7 +62,7 @@ export function AuthScreen() {
       if (nameError) newErrors.fullName = nameError;
       const usernameError = getValidationError(
         'username',
-        formData.username || ''
+        formData.username || '',
       );
       if (usernameError) newErrors.username = usernameError;
     }
@@ -117,7 +120,8 @@ export function AuthScreen() {
         <Pressable
           onPress={handleBack}
           disabled={mode === 'login' && step === 1}
-          className="p-2">
+          className="p-2"
+        >
           <ChevronLeft
             size={24}
             color={mode === 'login' && step === 1 ? '#d1d5db' : '#1f2937'}
@@ -221,7 +225,8 @@ export function AuthScreen() {
                 onPress={handleNextStep}
                 loading={loading}
                 fullWidth
-                size="lg">
+                size="lg"
+              >
                 {step === 3 ? 'Criar Conta' : 'Continuar'}
               </Button>
             </View>
@@ -261,7 +266,8 @@ function LoginForm({
   return (
     <FormSection
       title="Bem-vindo de volta"
-      description="Entre com sua conta para continuar">
+      description="Entre com sua conta para continuar"
+    >
       <Input
         label="Email"
         value={email}
@@ -319,7 +325,8 @@ function SignUpEmailStep({
   return (
     <FormSection
       title="Qual é seu email?"
-      description="Usaremos para criar e recuperar sua conta">
+      description="Usaremos para criar e recuperar sua conta"
+    >
       <Input
         label="Email"
         value={email}
@@ -353,7 +360,8 @@ function SignUpPasswordStep({
   return (
     <FormSection
       title="Crie uma senha"
-      description="Mínimo 8 caracteres para sua segurança">
+      description="Mínimo 8 caracteres para sua segurança"
+    >
       <PasswordInput
         value={password}
         onChangeText={onPasswordChange}
@@ -396,7 +404,8 @@ function SignUpProfileStep({
   return (
     <FormSection
       title="Conte-nos sobre você"
-      description="Informações básicas do seu perfil">
+      description="Informações básicas do seu perfil"
+    >
       <Input
         label="Nome Completo"
         value={fullName}

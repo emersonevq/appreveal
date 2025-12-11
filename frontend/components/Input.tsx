@@ -24,7 +24,8 @@ export function Input({
       <View
         className={`flex-row items-center bg-gray-50 rounded-xl px-4 py-3 border ${
           error ? 'border-red-300' : 'border-gray-200'
-        }`}>
+        }`}
+      >
         {leftIcon && <View className="mr-3">{leftIcon}</View>}
 
         <TextInput

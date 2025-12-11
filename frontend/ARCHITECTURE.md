@@ -59,6 +59,7 @@ frontend/
 ## 🔄 Fluxo de Dados
 
 ### Login
+
 ```
 AuthScreen (login mode)
     ↓
@@ -80,6 +81,7 @@ Renderiza (tabs)
 ```
 
 ### SignUp
+
 ```
 AuthScreen (signup mode)
     ↓
@@ -103,6 +105,7 @@ Renderiza (tabs)
 ## 🎯 Integração com Backend (TODO)
 
 ### Supabase (Recomendado)
+
 ```tsx
 // frontend/modules/api/auth.ts
 import { createClient } from '@supabase/supabase-js';
@@ -127,6 +130,7 @@ export async function signupWithEmail(email: string, password: string) {
 ```
 
 ### Usar no Hook
+
 ```tsx
 // frontend/hooks/useAuth.ts
 import { loginWithEmail, signupWithEmail } from '@/frontend/modules/api/auth';
@@ -136,7 +140,7 @@ const login = useCallback(async (data: LoginData) => {
   try {
     const { data: authData, error } = await loginWithEmail(
       data.email,
-      data.password
+      data.password,
     );
     if (error) throw error;
     // setUser(authData.user);
@@ -149,12 +153,14 @@ const login = useCallback(async (data: LoginData) => {
 ## 🎨 Design System
 
 ### Cores
+
 - **Primária**: Sky Blue (#0ea5e9)
 - **Fundo**: White (#ffffff)
 - **Texto**: Gray-900 (#111827)
 - **Secundário**: Gray-600 (#4b5563)
 
 ### Icons
+
 - Email: Mail
 - Senha: Lock
 - Telefone: Phone
@@ -162,6 +168,7 @@ const login = useCallback(async (data: LoginData) => {
 - Social: Chrome (Google), Github
 
 ### Componentes Base
+
 - `Button` - Variantes: primary, secondary, outline, ghost
 - `Input` - Com suporte a ícones e erros
 - `PasswordInput` - Com toggle de visibilidade
@@ -169,6 +176,7 @@ const login = useCallback(async (data: LoginData) => {
 ## 📱 Responsividade
 
 Toda a aplicação usa:
+
 - **Tailwind CSS** com NativeWind
 - **Flex layout** para flexibilidade
 - **ScrollView** para conteúdo grande
