@@ -1,3 +1,4 @@
+import React from 'react';
 import { View, Text, ScrollView, Pressable, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Check, X } from 'lucide-react-native';
