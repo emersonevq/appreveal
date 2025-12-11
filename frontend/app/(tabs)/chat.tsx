@@ -1,20 +1,22 @@
-import { View, Text, ScrollView, useState } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
+import { useState } from 'react';
 import { ConversationList } from '@/frontend/components/chat/ConversationList';
 import { ChatMessage } from '@/frontend/components/chat/ChatMessage';
 import { ChatInput } from '@/frontend/components/chat/ChatInput';
 import { mockConversations } from '@/frontend/mocks/chats';
+import type { ChatMessage as ChatMessageType } from '@/frontend/types/chat';
 
 export default function ChatScreen() {
   const [selectedConversation, setSelectedConversation] = useState(
     mockConversations[0],
   );
-  const [messages, setMessages] = useState(selectedConversation.messages);
+  const [messages, setMessages] = useState<ChatMessageType[]>(selectedConversation.messages);
   const [editingMessageId, setEditingMessageId] = useState<string | null>(null);
   const [editingText, setEditingText] = useState('');
 
   const handleSendMessage = (content: string) => {
     if (!editingMessageId) {
-      const newMessage = {
+      const newMessage: ChatMessageType = {
         id: `msg_${Date.now()}`,
         conversationId: selectedConversation.id,
         userId: '1',
@@ -27,7 +29,7 @@ export default function ChatScreen() {
       setMessages([...messages, newMessage]);
     } else {
       setMessages(
-        messages.map((msg) =>
+        messages.map((msg: ChatMessageType) =>
           msg.id === editingMessageId
             ? { ...msg, content, editedAt: 'Agora' }
             : msg,
@@ -47,7 +49,7 @@ export default function ChatScreen() {
   };
 
   const handleDeleteMessage = (messageId: string) => {
-    setMessages(messages.filter((m) => m.id !== messageId));
+    setMessages(messages.filter((m: ChatMessageType) => m.id !== messageId));
   };
 
   const handleCopyMessage = (content: string) => {
@@ -96,7 +98,7 @@ export default function ChatScreen() {
 
           {/* Messages */}
           <ScrollView className="flex-1 px-6 py-4">
-            {messages.map((message) => (
+            {messages.map((message: ChatMessageType) => (
               <ChatMessage
                 key={message.id}
                 message={message}
