@@ -137,5 +137,3 @@ export default function FriendRequestsScreen() {
     </View>
   );
 }
-
-import React from 'react';
