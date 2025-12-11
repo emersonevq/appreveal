@@ -1,6 +1,12 @@
 import { View, Text, ScrollView, Pressable, Image } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Settings, MessageCircle, Users, Bell, Inbox } from 'lucide-react-native';
+import {
+  Settings,
+  MessageCircle,
+  Users,
+  Bell,
+  Inbox,
+} from 'lucide-react-native';
 import { mockCurrentUser, mockUsers } from '@/frontend/mocks/users';
 import {
   friendsStatusList,
@@ -112,9 +118,7 @@ export default function HomeScreen() {
                   <Text className="font-bold text-gray-900 text-sm">
                     Notificações
                   </Text>
-                  <Text className="text-xs text-gray-600">
-                    2 novas
-                  </Text>
+                  <Text className="text-xs text-gray-600">2 novas</Text>
                 </View>
               </View>
             </Pressable>
@@ -132,9 +136,7 @@ export default function HomeScreen() {
                   <Text className="font-bold text-gray-900 text-sm">
                     Solicitações
                   </Text>
-                  <Text className="text-xs text-gray-600">
-                    3 pendentes
-                  </Text>
+                  <Text className="text-xs text-gray-600">3 pendentes</Text>
                 </View>
               </View>
             </Pressable>
